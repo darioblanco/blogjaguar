@@ -1,0 +1,219 @@
+# Fichero de traducción de inglés a español.
+# Copyright (C) 2011 The soft jaguar
+# This file is distributed under the same license as the PACKAGE package.
+# Darío Blanco <dblancoit@gmail.com>, 2011.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-11-17 17:58+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Darío Blanco <dblancoit@gmail.com>\n"
+"Language-Team: Español <dblancoit@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: settings.py:58
+msgid "Spanish"
+msgstr "Español"
+
+#: settings.py:59
+msgid "English"
+msgstr "Inglés"
+
+#: blog/models.py:47 templates/header.html:8 templates/sidebar.html:15
+#: templates/blog/category_view.html:4
+msgid "Categories"
+msgstr "Categorías"
+
+#: blog/models.py:73
+#, fuzzy
+msgid "Entries"
+msgstr "Artículos"
+
+#: blog/models.py:99
+#, fuzzy
+msgid "CommentVotes"
+msgstr "Comentarios"
+
+#: blog/models.py:107
+msgid "EntryVotes"
+msgstr "Votos de Artículos"
+
+#: templates/footer.html:6
+msgid "Image Gallery"
+msgstr "Galería de Imágenes"
+
+#: templates/footer.html:20
+msgid "Featured links"
+msgstr "Enlaces destacados"
+
+#: templates/footer.html:26
+msgid "I'm a social animal"
+msgstr "Soy un animal social"
+
+#: templates/footer.html:28
+msgid "Follow me on Twitter"
+msgstr "Sígueme en Twitter"
+
+#: templates/footer.html:31
+msgid "Add me on Facebook"
+msgstr "Agrégame en Facebook"
+
+#: templates/footer.html:34
+msgid "Add me on LinkedIn"
+msgstr "Agrégame en LinkedIn"
+
+#: templates/footer.html:37
+msgid "Add me on Google +"
+msgstr "Agrégame en Google +"
+
+#: templates/footer.html:40
+msgid "Subscribe via RSS"
+msgstr "Subscríbete vía RSS"
+
+#: templates/footer.html:43
+msgid "Contact me by email"
+msgstr "Contáctame por email"
+
+#: templates/footer.html:46
+msgid "Follow my videos on Youtube"
+msgstr "Sigue mis vídeos en Youtube"
+
+#: templates/footer.html:49
+msgid "See what I listen to on last.fm"
+msgstr "Mira que escucho en last.fm"
+
+#: templates/footer.html:57 templates/blog/privacy_view.html:4
+#: templates/blog/privacy_view.html.py:9
+msgid "Privacy policy"
+msgstr "Política de privacidad"
+
+#: templates/footer.html:58
+msgid "License"
+msgstr "Licencia"
+
+#: templates/footer.html:60
+msgid "Developed with"
+msgstr "Desarrollado con"
+
+#: templates/header.html:7
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/header.html:9 templates/blog/archives_view.html:4
+#: templates/blog/archives_view.html:8
+msgid "Archives"
+msgstr "Archivos"
+
+#: templates/header.html:10
+msgid "About Me"
+msgstr "Acerca de mí"
+
+#: templates/header.html:32
+msgid "Welcome "
+msgstr "Bienvenido "
+
+#: templates/header.html:38
+msgid "The user is not active"
+msgstr "El usuario no está activo"
+
+#: templates/header.html:44
+msgid "A simple blog, with feline pragmatism"
+msgstr "Un blog simple, con pragmatismo felino"
+
+#: templates/sidebar.html:28
+msgid "Administration panel"
+msgstr "Panel de administración"
+
+#: templates/sidebar.html:29
+msgid "Create entry"
+msgstr "Crear entrada"
+
+#: templates/blog/aboutme_view.html:4 templates/blog/aboutme_view.html.py:9
+msgid "About me"
+msgstr "Acerca de mí"
+
+#: templates/blog/aboutme_view.html:11
+msgid "About me text"
+msgstr "Texto sobre acerca de mí"
+
+#: templates/blog/aboutme_view.html:13 templates/blog/blog_singlepost.html:59
+#: templates/blog/blog_view.html:25 templates/blog/category_view.html:13
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/blog/archives_view.html:13
+msgid "entries"
+msgstr "artículos"
+
+#: templates/blog/blog_singlepost.html:30
+msgid "Posted by"
+msgstr "Escrito por"
+
+#: templates/blog/blog_singlepost.html:32
+msgid "Filed under"
+msgstr "Archivado bajo"
+
+#: templates/blog/blog_singlepost.html:37
+msgid " guys think that this entry is ON FIRE"
+msgstr " personajes piensan que este artículo está ON FIRE"
+
+#: templates/blog/blog_singlepost.html:56
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/blog/blog_singlepost.html:63
+msgid "I think this entry is ON FIRE"
+msgstr "Pienso que este artículo está ON FIRE"
+
+#: templates/blog/blog_singlepost.html:65
+#: templates/blog/blog_singlepost.html:126
+msgid "I like it"
+msgstr "Me gusta esto"
+
+#: templates/blog/blog_singlepost.html:69
+#: templates/blog/blog_singlepost.html:129
+#, fuzzy
+msgid "Only logged users can rate articles"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/blog/blog_singlepost.html:73
+msgid "Response"
+msgstr "Respuesta"
+
+#: templates/blog/blog_singlepost.html:78
+msgid "Leave a reply"
+msgstr "Deja un comentario"
+
+#: templates/blog/blog_singlepost.html:80
+msgid "Only authenticated users can leave replies"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/blog/blog_singlepost.html:86
+msgid "Message"
+msgstr "Mensaje"
+
+#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+msgid "by"
+msgstr "por"
+
+#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+msgid "in"
+msgstr "en"
+
+#: templates/blog/blog_view.html:22
+msgid "Read"
+msgstr "Leer más"
+
+#: templates/blog/search_view.html:7 templates/blog/search_view.html.py:10
+msgid "Search"
+msgstr "Búsqueda"
+
+#: templates/blog/search_view.html:11
+msgid "Entries searched by "
+msgstr "Entradas buscadas por "

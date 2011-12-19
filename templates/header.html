@@ -1,0 +1,47 @@
+{% load i18n %}
+
+<div class="header">
+  <div class="header_resize">
+    <div class="menu_nav">
+     <ul>
+        <li><a href="{% url index %}">{% trans "Blog" %}</a></li>
+        <li><a href="{% url categories %}">{% trans "Categories" %}</a></li>
+        <li><a href="{% url archives %}">{% trans "Archives" %}</a></li>
+        <li><a href="{% url about %}">{% trans "About Me" %}</a></li>
+    </ul>
+      <div class="clr"></div>
+    </div>
+    <div class="info">
+      <form action="/i18n/setlang/" method="post">
+          {% csrf_token %}
+          {% get_language_info_list for LANGUAGES as languages %}
+          {% for language in languages %}
+              <input type="image"
+                     name="language"
+                     value ="{{ language.code }}"
+                     src="{{ MEDIA_URL }}../static/images/{{ language.code }}.gif"
+                     class="send"
+              />&nbsp;&nbsp;
+          {% endfor %}
+      </form>
+      {% if not user.is_authenticated %}
+{#          <a href="{{ STATIC_URL }}../auth/login/twitter/"><img src="{{ STATIC_URL }}images/logintwitter.png"></a>#}
+          <a href="{% url facebook_login %}"><img src="{{ STATIC_URL }}images/loginfacebook.png"></a>
+      {% else %}
+          {% if user.is_active %}
+              {% trans "Welcome " %}{{ user.username }}
+              {% if not user.is_superuser %}
+                  <img src="http://graph.facebook.com/{{ user.get_profile.facebook_id }}/picture" width="15" height="15"/>
+              {% endif %}
+              - <a href="{% url logout %}">Logout</a>
+          {% else %}
+              {% trans "The user is not active" %}
+          {% endif %}
+      {% endif %}
+    </div>
+    <div class="logo">
+      <h1><a href="#">The soft <span style="color: #DCBD6A">j</span>aguar</a></h1>
+      <h1><small>{% trans "A simple blog, with feline pragmatism" %}</small></h1>
+    </div>
+  </div>
+</div>

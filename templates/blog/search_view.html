@@ -1,0 +1,33 @@
+{# FUTURE USE #}
+
+
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "Search" %} | The soft jaguar {% endblock %}
+
+{% block mainbar %}
+<h1> {% trans "Search" %}</h1>
+    {% trans "Entries searched by " %}'palabra':
+{% for entry in blog_list %}
+    <div class="article">
+        <h2><a href="{% url singlepost entry.id %}">{{ entry.title }}</a></h2>
+        <p><small>{{ entry.date }} {% trans "by" %} {{ entry.author }} {% trans "in" %}
+            {% for cat in entry.cat.all %}
+                <a href="{% url category_entries cat.id %}">{{ cat.title }}</a>,
+            {% endfor %}
+        </small></p>
+        <div class="clr"></div>
+    </div>
+{% endfor %}
+    <div class = "next"><p>
+        {% for nav in nav_list %}
+            {% if nav == pag %}
+                <a href="{% url blogpage nav %}">[{{ nav }}]</a>
+            {% else %}
+                <a href="{% url blogpage nav %}">{{ nav }}</a>
+            {% endif %}
+        {% endfor %}
+    </p></div>
+
+{% endblock %}

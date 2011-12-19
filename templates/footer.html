@@ -1,0 +1,63 @@
+{% load i18n %}
+
+<div class="fbg">
+  <div class="fbg_resize">
+    <div class="col c1">
+      <h2><span>{% trans "Image Gallery" %}</span></h2>
+      <a href="{{ MEDIA_URL }}gallery/image1.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image1.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ MEDIA_URL }}gallery/image2.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image2.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ MEDIA_URL }}gallery/image3.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image3.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ MEDIA_URL }}gallery/image4.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image4.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ MEDIA_URL }}gallery/image5.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image5.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ MEDIA_URL }}gallery/image1.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image1.jpg" width="58" height="58" alt="pix"/></a>
+    <script type="text/javascript">
+    $(function() {
+        $('a[@rel*=lightbox]').lightBox(); // Select all links that contains lightbox in the attribute rel
+    });
+    </script>
+    </div>
+    <div class="col c2">
+        <h2><span>{% trans "Featured links" %}</span></h2>
+        {% for link in link_list %}
+            <li><a href="http://{{ link.url }}" title="{{ link.name }}" target="_blank"> {{ link.name }}</a></li>
+        {% endfor %}
+    </div>
+    <div class="col c3">
+        <h2><span>{% trans "I'm a social animal" %}</span></h2>
+        <div><a href="http://twitter.com/#!/darioblanco" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/twitter.png"/>{% trans "Follow me on Twitter" %}</a>
+        </div>
+        <div><a href="http://www.facebook.com/profile.php?id=677357928" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/facebook.png"/>{% trans "Add me on Facebook" %}</a>
+        </div>
+        <div><a href="http://es.linkedin.com/pub/dar%C3%ADo-blanco-iturriaga/26/712/891" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/linkedin.png"/>{% trans "Add me on LinkedIn" %}</a>
+        </div>
+        <div><a href="https://plus.google.com/113318641606421732499" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/google.png"/>{% trans "Add me on Google +" %}</a>
+        </div>
+        <div><a href="#" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/feed.png"/>{% trans "Subscribe via RSS" %}</a>
+        </div>
+        <div><a href="mailto:dblancoit@gmail.com">
+            <img src="{{ STATIC_URL }}images/socialicons/email.png"/>{% trans "Contact me by email" %}</a>
+        </div>
+        <div><a href="http://www.youtube.com/user/sharkerz" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/youtube.png"/>{% trans "Follow my videos on Youtube" %}</a>
+        </div>
+        <div><a href="http://www.lastfm.es/user/sharkerz" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/lastfm.png"/>{% trans "See what I listen to on last.fm" %}</a>
+        </div>
+    </div>
+    <div class="clr"></div>
+  </div>
+  <div class="footer">
+    <p class="lr">
+        &copy; Copyright <a href="{{ STATIC_URL }}../about">darioblanco</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url privacy_policy %}">{% trans "Privacy policy" %}</a>&nbsp;&nbsp;|&nbsp;
+        <a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">{% trans "License" %}</a>&nbsp;&nbsp;|&nbsp;
+    </p>
+    <p class="lf">{% trans "Developed with" %}<a href="http://www.djangoproject.com/" target="_blank"> Django</a></p>
+    <div class="clr"></div>
+  </div>
+</div>

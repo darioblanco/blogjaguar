@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "Categories" %} | The soft jaguar {% endblock %}
+
+{% block mainbar %}
+{% for cat in cat_list %}
+    <div class="article">
+        <h2><a href="{% url category_entries cat.id %}">{{ cat.title }}</a></h2>
+        <div class="clr"></div>
+        <p>{{ cat.desc }}</p>
+        {% if user.is_authenticated %}
+            <a href="{{ STATIC_URL }}../admin/blog/category/{{ cat.id }}"><strong>{% trans "Edit" %}</strong></a>
+        {% endif %}
+    </div>
+{% endfor %}
+
+{% endblock %}

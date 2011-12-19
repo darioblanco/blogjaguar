@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "About me" %} | The soft jaguar {% endblock %}
+
+{% block mainbar %}
+
+    <div class="article">
+        <h2>{% trans "About me" %}</h2>
+        <div class="clr"></div>
+        <p>{% trans "About me text" %}</p>
+        {% if user.is_authenticated %}
+            <a href="#"><strong>{% trans "Edit" %}</strong></a>
+        {% endif %}
+    </div>
+
+{% endblock %}

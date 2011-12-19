@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "Archives" %} | The soft jaguar {% endblock %}
+
+{% block mainbar %}
+    <div class="article">
+        <h2>{% trans "Archives" %}</h2>
+    </div>
+{% for year in year_list %}
+    <div class="article">
+        <h3><a href="{% url year_archives year.year %}">
+            {{ year.year }} <small>({{ year.numberEntriesYear }} {% trans "entries" %})</small><br/>
+        </a></h3>
+        <p>
+        {% for month in year.months %}
+            <a href="{% url month_archives month.month year.year%}">
+                <li>{{ month.translateMonth }} {{ year.year }} <span style="color: #000;"> ({{ month.numberEntriesMonth }})</span></li>
+            </a>
+            {{ month.posts }}
+        {% endfor %}
+        </p>
+    </div>
+{% endfor %}
+
+{% endblock %}

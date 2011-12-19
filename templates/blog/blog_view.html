@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} Blog | The soft jaguar {% endblock %}
+
+{% block mainbar %}
+
+{% for entry in blog_list %}
+    <div class="article">
+        <h2><a href="{% url singlepost entry.id %}">{{ entry.title }}</a></h2>
+        <p><small>{{ entry.date }} {% trans "by" %} {{ entry.author }} {% trans "in" %}
+            {% for cat in entry.cat.all %}
+                <a href="../../blog/cat{{ cat.id }}">{{ cat.title }}</a>,
+            {% endfor %}
+        </small></p>
+        <div class="clr"></div>
+        {% autoescape off %}
+        <div align="justify">
+            <p>{{ entry.preview }}</p>
+        </div>
+        {% endautoescape %}
+        <a href="{% url singlepost entry.id %}"><strong>{% trans "Read" %}</strong></a>
+            {% if user.is_authenticated and user.is_superuser %}
+                <span>&nbsp;&bull;&nbsp;</span>
+                <a href="{{ STATIC_URL }}../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+           {% endif %}
+    </div>
+{% endfor %}
+    <div class="next" style="padding:5px 20px 2px 20px;">
+            <span class="butons">
+                {% for nav in nav_list %}
+                    {% ifequal nav  page %}
+                        <a href="{% url blogpage nav %}" class="active">{{ nav }}</a>
+                    {% else %}
+                        <a href="{% url blogpage nav %}">{{ nav }}</a>
+                    {% endifequal %}
+                {% endfor %}                
+            </span>
+        <br />
+    </div>
+
+{% endblock %}
