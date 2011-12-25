@@ -21,15 +21,15 @@ from darioblog import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'darioblog.blog.views.bloglist_view', {'page_id': 0}, name="index"),
-    (r'^blog/', include('darioblog.blog.urls')),
+    url(r'^$', 'blog.views.bloglist_view', {'page_id': 0}, name="index"),
+    (r'^blog/', include('blog.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')), # Multilanguage
-    url(r'^categories/', 'darioblog.blog.views.catlist', name="categories"),
-    url(r'^about/', 'darioblog.blog.views.aboutme', name="about"),
-    url(r'^privacy_policy/', 'darioblog.blog.views.privacy_policy', name="privacy_policy"),
-    url(r'^facebook/login/$', 'darioblog.facebook.views.login', name="facebook_login"),
-    url(r'^facebook/authentication_callback/$', 'darioblog.facebook.views.authentication_callback', name="facebook_callback"),
-    url(r'^logout/', 'darioblog.blog.views.logout_view', name="logout"),
+    url(r'^categories/', 'blog.views.catlist', name="categories"),
+    url(r'^about/', 'blog.views.aboutme', name="about"),
+    url(r'^privacy_policy/', 'blog.views.privacy_policy', name="privacy_policy"),
+    url(r'^facebook/login/$', 'facebook.views.login', name="facebook_login"),
+    url(r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback', name="facebook_callback"),
+    url(r'^logout/', 'blog.views.logout_view', name="logout"),
     url(r'^admin/', include(admin.site.urls), name="admin"),
 )
 

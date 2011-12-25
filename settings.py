@@ -13,9 +13,15 @@
 #   limitations under the License.
 
 import os
+import sys
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+# For holding the different apps in the apps folder
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
+
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -111,20 +117,20 @@ TEMPLATE_DIRS = (
 )
 
 # Make this unique, and don't share it with anybody.
-#if not hasattr(globals(), 'SECRET_KEY'):
-#    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
-#    try:
-#        SECRET_KEY = open(SECRET_FILE).read().strip()
-#    except IOError:
-#        try:
-#            import string, random
-#            SECRET_KEY = ''.join(random.choice(string.printable) for i in xrange(50))
-#            secret = file(SECRET_FILE, 'w')
-#            secret.write(SECRET_KEY)
-#            secret.close()
-#        except IOError:
-#            raise Exception('Please create a %s file with random characters to set your secret key' % SECRET_FILE)
-SECRET_KEY = 'qc#7l9jt2h@zk=hl6f(#s0miv^i_59)b%2b(xubs_(-yx#vc2$'
+if not hasattr(globals(), 'SECRET_KEY'):
+    SECRET_FILE = os.path.join(PROJECT_ROOT, 'secret.txt')
+    try:
+        SECRET_KEY = open(SECRET_FILE).read().strip()
+    except IOError:
+        try:
+            import string, random
+            SECRET_KEY = ''.join(random.choice(string.printable) for i in xrange(50))
+            secret = file(SECRET_FILE, 'w')
+            secret.write(SECRET_KEY)
+            secret.close()
+        except IOError:
+            raise Exception('Please create a %s file with random characters to set your secret key' % SECRET_FILE)
+# SECRET_KEY = 'qc#7l9jt2h@zk=hl6f(#s0miv^i_59)b%2b(xubs_(-yx#vc2$'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -152,8 +158,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.admin',
-    'darioblog.blog',
-    'darioblog.facebook',
+    'blog',
+    'facebook',
     'django.contrib.staticfiles',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -161,11 +167,12 @@ INSTALLED_APPS = (
 
 # For 'facebook' app
 AUTHENTICATION_BACKENDS = (
-    'darioblog.facebook.backend.FacebookBackend',
+    'facebook.backend.FacebookBackend',
     'django.contrib.auth.backends.ModelBackend'
 )
 AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
 
+# Fill the app id and app secret key according to your facebook developer profile
 FACEBOOK_SCOPE = 'email,publish_stream'
 FACEBOOK_APP_ID = '237060613017863'
 FACEBOOK_APP_SECRET = 'debd206e9fd73bd9ad95bdaa647dafdc'
