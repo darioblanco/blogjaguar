@@ -15,21 +15,12 @@
 import os
 import sys
 
+# Only activate the debug mode when developing and not in production!
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# For holding the different apps in the apps folder
-PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
-sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
-
-
-# If you set this to False, Django will make some optimizations so as not
-# to load the internationalization machinery.
-USE_I18N = True
-#USE_L10N = True
-
 ADMINS = (
-    #('sharker', 'dblancoit@gmail.com'),
+    ('sharker', 'dblancoit@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -58,7 +49,7 @@ TIME_ZONE = 'Europe/Madrid'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en'
 
-# Para evitar import circular de django.utils.translation se hace de esta manera
+# To avoiding a circular import of django.utils.translation
 ugettext = lambda s: s
 LANGUAGES = (
   ('es', ugettext('Spanish')),
@@ -75,8 +66,10 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Path de la raiz del proyecto
+# Root path of the project
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+# For holding the different apps in the apps folder, we add the apps path to the root
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
@@ -139,7 +132,7 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
-# Si se usa CacheMiddleware, se debe poner LocaleMiddleware detras de el
+# If CacheMiddleware is used, LocaleMiddleware has to be the next
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
