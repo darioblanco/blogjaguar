@@ -4,12 +4,16 @@
   <div class="fbg_resize">
     <div class="col c1">
       <h2><span>{% trans "Image Gallery" %}</span></h2>
-      <a href="{{ MEDIA_URL }}gallery/image1.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image1.jpg" width="58" height="58" alt="pix"/></a>
-      <a href="{{ MEDIA_URL }}gallery/image2.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image2.jpg" width="58" height="58" alt="pix" /></a>
-      <a href="{{ MEDIA_URL }}gallery/image3.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image3.jpg" width="58" height="58" alt="pix" /></a>
-      <a href="{{ MEDIA_URL }}gallery/image4.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image4.jpg" width="58" height="58" alt="pix" /></a>
-      <a href="{{ MEDIA_URL }}gallery/image5.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image5.jpg" width="58" height="58" alt="pix" /></a>
-      <a href="{{ MEDIA_URL }}gallery/image1.jpg" rel="lightbox"><img src="{{ MEDIA_URL }}gallery/thumb_image1.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ STATIC_URL }}gallery/image1.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image1.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ STATIC_URL }}gallery/image2.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image2.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ STATIC_URL }}gallery/image3.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image3.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ STATIC_URL }}gallery/image4.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image4.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ STATIC_URL }}gallery/image5.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image5.jpg" width="58" height="58" alt="pix" /></a>
+      <a href="{{ STATIC_URL }}gallery/image6.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image6.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ STATIC_URL }}gallery/image7.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image7.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ STATIC_URL }}gallery/image8.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image8.jpg" width="58" height="58" alt="pix"/></a>
+      <a href="{{ STATIC_URL }}gallery/image9.jpg" rel="lightbox"><img src="{{ STATIC_URL }}gallery/thumb_image9.jpg" width="58" height="58" alt="pix"/></a>
+
     <script type="text/javascript">
     $(function() {
         $('a[@rel*=lightbox]').lightBox(); // Select all links that contains lightbox in the attribute rel
@@ -32,6 +36,9 @@
         </div>
         <div><a href="http://es.linkedin.com/pub/dar%C3%ADo-blanco-iturriaga/26/712/891" target="_blank">
             <img src="{{ STATIC_URL }}images/socialicons/linkedin.png"/>{% trans "Add me on LinkedIn" %}</a>
+        </div>
+        <div><a href="http://github.com/sharkerz" target="_blank">
+            <img src="{{ STATIC_URL }}images/socialicons/github.png"/>{% trans "Follow my code on github" %}</a>
         </div>
         <div><a href="https://plus.google.com/113318641606421732499" target="_blank">
             <img src="{{ STATIC_URL }}images/socialicons/google.png"/>{% trans "Add me on Google +" %}</a>

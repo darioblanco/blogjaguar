@@ -20,7 +20,7 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('sharker', 'dblancoit@gmail.com'),
+    #('yourname', 'your@email.com'),
 )
 
 MANAGERS = ADMINS
@@ -50,6 +50,7 @@ TIME_ZONE = 'Europe/Madrid'
 LANGUAGE_CODE = 'en'
 
 # To avoiding a circular import of django.utils.translation
+# You can put more languages here
 ugettext = lambda s: s
 LANGUAGES = (
   ('es', ugettext('Spanish')),
@@ -71,14 +72,14 @@ PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 # For holding the different apps in the apps folder, we add the apps path to the root
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = '/media/'
+## Absolute filesystem path to the directory that will hold user-uploaded files.
+## Example: "/home/media/media.lawrence.com/media/"
+#MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
+#
+## URL that handles the media served from MEDIA_ROOT. Make sure to use a
+## trailing slash.
+## Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+#MEDIA_URL = '/media/'
 
 # Absolute path to the directory dariomedia files should be collected to.
 # Don't put anything in this directory yourself; store your dariomedia files
@@ -91,11 +92,6 @@ STATIC_URL = '/static/'
 
 # URL prefix for admin dariomedia files -- CSS, JavaScript and images.
 ADMIN_MEDIA_PREFIX = '/admin-media/'
-
-# Additional locations of dariomedia files
-#STATICFILES_DIRS = (
-#    os.path.join(PROJECT_ROOT, 'media', 'dariomedia'),  # /blog/dariomedia
-#)
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -123,7 +119,6 @@ if not hasattr(globals(), 'SECRET_KEY'):
             secret.close()
         except IOError:
             raise Exception('Please create a %s file with random characters to set your secret key' % SECRET_FILE)
-# SECRET_KEY = 'qc#7l9jt2h@zk=hl6f(#s0miv^i_59)b%2b(xubs_(-yx#vc2$'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -143,7 +138,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'darioblog.urls'
+ROOT_URLCONF = 'urls'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -167,8 +162,8 @@ AUTH_PROFILE_MODULE = 'facebook.FacebookProfile'
 
 # Fill the app id and app secret key according to your facebook developer profile
 FACEBOOK_SCOPE = 'email,publish_stream'
-FACEBOOK_APP_ID = '237060613017863'
-FACEBOOK_APP_SECRET = 'debd206e9fd73bd9ad95bdaa647dafdc'
+FACEBOOK_APP_ID = ''
+FACEBOOK_APP_SECRET = ''
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',

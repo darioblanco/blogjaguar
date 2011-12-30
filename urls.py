@@ -15,36 +15,39 @@
 from os.path import join, dirname
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
-from darioblog import settings
+from settings import DEBUG, STATIC_ROOT
 
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'blog.views.bloglist_view', {'page_id': 0}, name="index"),
+    url(r'^$', 'blog.views.blog_entries_view', {'page_id': 0}, name="index"),
     (r'^blog/', include('blog.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')), # Multilanguage
-    url(r'^categories/', 'blog.views.catlist', name="categories"),
-    url(r'^about/', 'blog.views.aboutme', name="about"),
-    url(r'^privacy_policy/', 'blog.views.privacy_policy', name="privacy_policy"),
     url(r'^facebook/login/$', 'facebook.views.login', name="facebook_login"),
     url(r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback', name="facebook_callback"),
-    url(r'^logout/', 'blog.views.logout_view', name="logout"),
     url(r'^admin/', include(admin.site.urls), name="admin"),
+)
+
+urlpatterns += patterns('blog.views',
+    url(r'^categories/', 'blog_category_view', name="categories"),
+    url(r'^about/', 'aboutme_view', name="about"),
+    url(r'^privacy_policy/', 'privacy_view', name="privacy_policy"),
+    url(r'^logout/', 'logout_request', name="logout"),
 )
 
 
 # static urls will be disabled in production mode,
 # forcing user to configure httpd
-if settings.DEBUG:
+if DEBUG:
     urlpatterns += patterns(
         '',
-        url(r'^media/(.*)$', 'django.views.static.serve',
-            {'document_root': settings.MEDIA_ROOT,
-            'show_indexes' : True
-            }),
+#        url(r'^media/(.*)$', 'django.views.static.serve',
+#            {'document_root': MEDIA_ROOT,
+#            'show_indexes' : True
+#            }),
         url(r'^static/(.*)$', 'django.views.static.serve',
-            {'document_root': settings.STATIC_ROOT,
+            {'document_root': STATIC_ROOT,
              'show_indexes' : True
             }),
         url(r'^admin-media/(.*)$', 'django.views.static.serve',
