@@ -47,7 +47,7 @@ a.rm, a.com { margin-left:8px; padding:9px 12px; background:url(../images/a_bg.g
 .search form .button { float:left; margin:0; padding:4px 0 0 0; border:0;}
 /* content */
 .content { background-position: 0 bottom; margin-top: 0px; padding:10px 0 0 0;}
-.content_resize { margin:0 auto; padding:20px 0 0 0; width: 76%;}
+.content_resize { margin:0 auto; padding:20px 0 0 0; width: 990px;}
 .content .mainbar { margin-left: 0; margin-bottom: 0; margin-right: 0; margin-top: 11px; border-style: groove; border-width: 1px; background-color: white; width: 75%; float: left; border-radius: 5px}
 .content .mainbar .article img { margin-top: 5px; margin-bottom: 5px; display: block; margin-left: auto; margin-right: auto; padding: 4px; border:1px solid #eaecec; background-color:#fff;}
 .content .mainbar .sidebar img { float: left; margin-left: 0; margin-bottom: 0; margin-right: 10px; margin-top: 0; padding:4px; border:1px solid #eaecec; background-color:#fff;}
@@ -69,8 +69,8 @@ a.rm, a.com { margin-left:8px; padding:9px 12px; background:url(../images/a_bg.g
 .content .sidebar { margin:0; padding:0; float: right; }
 .content .sidebar .gadget { border-width: 1px; border-style: groove; padding-left: 20px; padding-bottom: 10px; padding-right: 20px; padding-top: 10px; margin-left: 0; margin-bottom: 0px; margin-right: 0; margin-top: 10px; background-color: #f9f9f9; width: 160px; border-radius: 5px}
 .content .sidebar .gadgetalt { padding-left: 20px; padding-bottom: 10px; padding-right: 20px; padding-top: 10px; margin-left: 0; margin-bottom: 0px; margin-right: 0; margin-top: 10px; width: 160px;}
-.content .sidebar .gadget_twitter { padding-right: 0px; padding-left: 0px; padding-bottom: 10px; padding-top: 10px; margin-left: 0; margin-bottom: 0px; margin-right: 0; margin-top: 10px; width: 160px;}
-ul.sb_menu, ul.ex_menu { margin:0; padding:0; list-style:none; color: #554007;}
+.content .sidebar .gadget_twitter { padding-right: 0px; padding-left: 0px; padding-bottom: 10px; padding-top: 10px; margin-left: 0; margin-bottom: 0px; margin-right: 0; margin-top: 10px; width: 100%;}
+ul.sb_menu, ul.ex_menu { width: 100%; margin:0; padding:0; list-style:none; color: #554007;}
 ul.sb_menu li, ul.ex_menu li { margin:0;}
 ul.sb_menu li { padding:4px 0 4px 12px; width:220px;}
 ul.ex_menu li { padding:4px 0 8px 12px;}

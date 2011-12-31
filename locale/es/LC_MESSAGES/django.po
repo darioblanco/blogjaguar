@@ -3,12 +3,12 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Darío Blanco <dblancoit@gmail.com>, 2011.
 #
-#, fuzzy
+ 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-28 19:08+0100\n"
+"POT-Creation-Date: 2011-12-31 17:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Darío Blanco <dblancoit@gmail.com>\n"
 "Language-Team: Español <dblancoit@gmail.com>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: settings.py:55
+#: settings.py:56
 msgid "Spanish"
 msgstr "Español"
 
-#: settings.py:56
+#: settings.py:57
 msgid "English"
 msgstr "Inglés"
 
-#: apps/blog/models.py:49 templates/header.html:8 templates/sidebar.html:15
+#: apps/blog/models.py:50 templates/header.html:8 templates/sidebar.html:15
 #: templates/blog/category_view.html:4
 msgid "Categories"
 msgstr "Categorías"
 
-#: apps/blog/models.py:78
-#, fuzzy
+#: apps/blog/models.py:79
+ 
 msgid "Entries"
 msgstr "Artículos"
 
-#: apps/blog/models.py:110
-#, fuzzy
+#: apps/blog/models.py:111
+ 
 msgid "CommentVotes"
 msgstr "Comentarios"
 
-#: apps/blog/models.py:120
+#: apps/blog/models.py:121
 msgid "EntryVotes"
 msgstr "Votos de Artículos"
 
@@ -143,7 +143,7 @@ msgid "About me"
 msgstr "Acerca de mí"
 
 #: templates/blog/aboutme_view.html:14
-#, fuzzy
+ 
 msgid ""
 "My name is Darío Blanco and I live in Madrid, Spain. I was born in 1987, in "
 "Burgos (the never ending winter city). I have a Bachelor's Degree in "
@@ -157,7 +157,7 @@ msgstr ""
 "acabando Ingeniería Informática en la Universidad Politécnica de Madrid."
 
 #: templates/blog/aboutme_view.html:15
-#, fuzzy
+ 
 msgid ""
 "I started coding in 2005 using C, although I've used several  languages "
 "before not worth mentioning, then I tried Java (my most used language around "
@@ -211,7 +211,7 @@ msgstr "Me gusta esto"
 
 #: templates/blog/blog_singlepost.html:69
 #: templates/blog/blog_singlepost.html:129
-#, fuzzy
+ 
 msgid "Only logged users can rate articles"
 msgstr "Solo usuarios autentificados pueden dejar comentarios"
 
