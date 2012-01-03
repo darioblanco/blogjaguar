@@ -42,7 +42,7 @@ class Category(models.Model):
     lang = models.CharField(max_length = 2, choices = LANGUAGES)
     title = models.CharField(max_length = 100)
     desc = models.TextField()
-
+    
     def __unicode__(self):
         return _(self.title)
     
@@ -62,10 +62,10 @@ class Entry(models.Model):
     mod_date = models.DateTimeField(null = True)
     published = models.BooleanField()
     rate = models.IntegerField(null = True)
-
+    
     def __unicode__(self):
         return self.title
-
+    
     def preview(self):
         """ Gives a preview of the entire entry text.
         """
@@ -73,7 +73,7 @@ class Entry(models.Model):
             return self.post[0:1000] + '  [...]'
         else :
             return self.post
-
+    
     class Meta:
         ordering = ["date"]
         verbose_name_plural = _("Entries")
@@ -89,7 +89,7 @@ class Comment(models.Model):
     num = models.IntegerField()
     quote = models.IntegerField(null = True)
     rate = models.IntegerField(null = True)
-
+    
     def __unicode__(self):
         return _(self.entry.title)
 
@@ -105,7 +105,7 @@ class CommentVotes(Votes):
     """ Implements the Vote generalization, related with one Comment.
     """
     comment = models.ForeignKey(Comment)
-
+    
     class Meta:
         ordering = ["comment"]
         verbose_name_plural = _("CommentVotes")
@@ -115,7 +115,7 @@ class EntryVotes(Votes):
     """ Implements the Vote generalization, related with one Entry.
     """
     entry = models.ForeignKey(Entry)
-
+    
     class Meta:
         ordering = ["entry"]
         verbose_name_plural = _("EntryVotes")
@@ -127,7 +127,7 @@ class Link(models.Model):
     name = models.CharField(max_length = 30)
     url = models.CharField(max_length = 100)
     order = models.IntegerField(unique = True)
-
+    
     def __unicode__(self):
         return self.name
 
@@ -172,7 +172,7 @@ class LinkAdmin(admin.ModelAdmin):
     """ Admin interface for Link.
     """
     list_display = ('name', 'url', 'order')
-    
+
 
 
 # Registering the models in the admin frontend

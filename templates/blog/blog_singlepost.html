@@ -7,7 +7,7 @@
     
 {% block mainbar %}
         {% get_current_language as LANGUAGE_CODE %}
-    {#    Facebook script #}
+    {# Facebook script #}
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
@@ -20,7 +20,7 @@
           {% endif %}
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-    {#    Google script#}
+    {# Google script#}
         <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
           {lang: '{{ LANGUAGE_CODE }}'}
         </script>
