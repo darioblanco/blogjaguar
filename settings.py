@@ -23,6 +23,8 @@ ADMINS = (
     #('yourname', 'your@email.com'),
 )
 
+SITE_URL = "http://thesoftjaguar.com"
+
 MANAGERS = ADMINS
 
 DATABASES = {

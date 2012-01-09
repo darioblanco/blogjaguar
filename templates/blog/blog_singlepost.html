@@ -3,7 +3,11 @@
 
 
 {% block title %} {{ entry.title }} | The soft jaguar {% endblock %}
-
+{% block head %} 
+<meta property="og:title" content="{{ entry.title }} | The soft jaguar"/> 
+<meta property="og:type" content="blog"/> 
+<meta property="og:image" content="{{ STATIC_URL }}images/minijaguar.png"/>
+{% endblock %}
     
 {% block mainbar %}
         {% get_current_language as LANGUAGE_CODE %}

@@ -20,12 +20,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>{% block title %} The soft jaguar {% endblock %}</title>
-{% block javascript %}{% endblock %}
+{% block head %}{% endblock %}
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon"> 
 <link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.lightbox-0.5.css" media="screen" />
+<link rel="image_src" href="{{ STATIC_URL }}images/minijaguar.png"/>
+<meta property="og:title" content="The soft jaguar"/> 
+<meta property="og:image" content="{{ STATIC_URL }}images/minijaguar.png"/>
+<meta property="og:url" content="http://thesoftjaguar.com"/>
+<meta property="og:site_name" content="The soft jaguar"/>
+<meta property="fb:app_id" content="237060613017863"/>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.lightbox-0.5.js"></script>
 <script type="text/javascript" src="{{ STATIC_URL }}js/cufon-yui.js"></script>
