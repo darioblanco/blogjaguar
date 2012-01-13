@@ -15,6 +15,7 @@
 from os.path import join, dirname
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
+from blog.rssfeeder import LatestEntriesFeed
 from settings import DEBUG, STATIC_ROOT
 
 
@@ -24,6 +25,7 @@ urlpatterns = patterns('',
     url(r'^$', 'blog.views.blog_entries_view', {'page_id': 0}, name="index"),
     (r'^blog/', include('blog.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')), # Multilanguage
+	url(r'^feed/$', LatestEntriesFeed(), name="feed"),
     url(r'^facebook/login/$', 'facebook.views.login', name="facebook_login"),
     url(r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback', name="facebook_callback"),
     url(r'^admin/', include(admin.site.urls), name="admin"),
