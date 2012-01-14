@@ -140,7 +140,7 @@ def single_category_view(request, cat_id):
     bp = BlogPage(request.LANGUAGE_CODE)
     return HttpResponse(__entrypage_template_gen(request,
                                                  'blog/blog_view.html',
-                                                 Entry.objects.filter(cat__id = cat_id),
+                                                 Entry.objects.filter(cat__id = cat_id).order_by('-date'),
                                                  bp.get_nav_list(0),
                                                  0))
 

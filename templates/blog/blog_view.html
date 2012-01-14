@@ -3,6 +3,11 @@
 
 {% block title %} Blog | The soft jaguar {% endblock %}
 
+{% block header %} 
+<meta property="og:url" content="http://thesoftjaguar.com">
+<meta property="og:title" content="The soft jaguar">
+{% endblock %}
+
 {% block mainbar %}
 
 {% for entry in blog_list %}

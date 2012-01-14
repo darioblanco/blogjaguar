@@ -3,6 +3,12 @@
 
 
 {% block title %} {{ entry.title }} | The soft jaguar {% endblock %}
+{% block header %} 
+<meta property="og:url" content="http://thesoftjaguar.com{% url singlepost entry.id %}">
+<meta property="og:title" content="{{ entry.title }} | The soft jaguar">
+<meta property="og:type" content="blog">
+<meta property="fb:app_id" content="237060613017863">
+{% endblock %}
 
     
 {% block mainbar %}
