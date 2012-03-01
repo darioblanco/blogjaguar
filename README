@@ -31,6 +31,10 @@ be directed to my email address: dblancoit@gmail.com
 Follow me on twitter: @darioblanco
 
 
+THINGS TO IMPROVE (it was my first Django app)
+- Use of Django paginator instead of my own paginator system (blogpage.py)
+- Use of Django comments system instead of my own comments system
+
 TODO
 - Login with twitter, google+, yahoo id.
 - Own search engine.
