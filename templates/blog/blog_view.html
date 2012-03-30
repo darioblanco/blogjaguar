@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load pygmentize_tags %}
 
 {% block title %} Blog | The soft jaguar {% endblock %}
 
@@ -21,7 +22,7 @@
         <div class="clr"></div>
         {% autoescape off %}
         <div align="justify">
-            <p>{{ entry.preview }}</p>
+            <p>{{ entry.preview|pygmentize_all }}</p>
         </div>
         {% endautoescape %}
         <a href="{% url singlepost entry.id %}"><strong>{% trans "Read" %}</strong></a>
