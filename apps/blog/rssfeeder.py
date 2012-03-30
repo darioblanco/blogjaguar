@@ -5,6 +5,9 @@ from darioblog.settings import SITE_URL
 
 
 class LatestEntriesFeed(Feed):
+    """ Creates a RSS feed of the latest blog posts
+    """
+
 	title = "The soft jaguar"
 	link = "/siteentries/"
 	description = "Blog RSS Feed"
