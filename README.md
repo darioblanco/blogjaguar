@@ -33,8 +33,10 @@ Follow me on twitter: @darioblanco
 
 # DEPENDENCIES
 * Pygments (http://pygments.org/)
+
     Installation:
     sudo easy_install Pygments
+
 
 # THINGS TO IMPROVE (it was my first Django app)
 * Use of Django paginator instead of my own paginator system (blogpage.py)
