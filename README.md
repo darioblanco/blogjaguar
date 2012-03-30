@@ -32,7 +32,7 @@ Follow me on twitter: @darioblanco
 
 
 # DEPENDENCIES
-Pygments (http://pygments.org/) 
+* Pygments (http://pygments.org/) 
 
     sudo easy_install Pygments
 
