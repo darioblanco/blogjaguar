@@ -4,7 +4,7 @@ from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
 from django.http import HttpResponse
 from pygments.lexers import HtmlLexer
-import settings
+import darioblog.settings
 
 def add_pygment(matchobj):
     #string = matchobj.group(0)
