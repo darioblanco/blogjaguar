@@ -52,3 +52,8 @@ Pygments (http://pygments.org/)
 system and it could be significantly improved).
 * Adding youtube and video functions to the Dojo Rich Text Editor.
 * File explorer.
+
+
+# RELATED PROJECTS
+* django-pygments (https://github.com/sniku/django-pygments)
+* django-facebook-oauth (https://github.com/ryanmark/django_facebook_oauth) with little modifications
