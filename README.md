@@ -31,6 +31,11 @@ be directed to my email address: dblancoit@gmail.com
 Follow me on twitter: @darioblanco
 
 
+# DEPENDENCIES
+* Pygments (http://pygments.org/)
+    Installation:
+    sudo easy_install Pygments
+
 # THINGS TO IMPROVE (it was my first Django app)
 * Use of Django paginator instead of my own paginator system (blogpage.py)
 * Use of Django comments system instead of my own comments system
@@ -40,7 +45,6 @@ Follow me on twitter: @darioblanco
 * Login with twitter, google+, yahoo id.
 * Own search engine.
 * Photo gallery app (related with the blog entries).
-* Syntax highlighting for pasting code in blog entries.
 * Better entry and comment system.
 * Better manual and code documentation.
 * Study the use of Django Generic Views (it was my first approach to the Django view
