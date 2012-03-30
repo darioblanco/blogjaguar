@@ -1,7 +1,7 @@
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
 from blog.models import Entry
-from settings import SITE_URL
+from darioblog.settings import SITE_URL
 
 
 class LatestEntriesFeed(Feed):
