@@ -32,9 +32,8 @@ Follow me on twitter: @darioblanco
 
 
 # DEPENDENCIES
-* Pygments (http://pygments.org/)
+Pygments (http://pygments.org/) 
 
-    Installation:
     sudo easy_install Pygments
 
 
@@ -51,5 +50,5 @@ Follow me on twitter: @darioblanco
 * Better manual and code documentation.
 * Study the use of Django Generic Views (it was my first approach to the Django view
 system and it could be significantly improved).
-* Adding to the Dojo Rich Text Editor youtube and video functions.
+* Adding youtube and video functions to the Dojo Rich Text Editor.
 * File explorer.
