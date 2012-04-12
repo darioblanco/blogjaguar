@@ -1,3 +1,4 @@
 .DS_STORE
 *.pyc
 settings.py
+darioblog.db
