@@ -5,6 +5,7 @@ html, .main { padding:0; margin:0; background:#dcbd6a url(../images/main_bg.gif)
 .clr { clear:both; padding:0; margin:0; width:100%; font-size:0px; line-height:0px;}
 .logo { padding-left: 0; padding-bottom: 20px; padding-right: 0; padding-top: 5px; color: white; margin:0 auto; width: 220px; float: right;}
 .logo img { float: left; margin:0 10px 0 0; }
+.logo ul { color: #b3b3b3; text-decoration:none; }
 .info { color: #cfcfcf; float: left; margin-bottom: 0; margin-top: 25px; padding-left: 0; padding-bottom: 20px; padding-right: 0; padding-top: 5px; width: 300px;}
 .info a {color: #cfcfcf;}
 .info a:hover {color: white;}
