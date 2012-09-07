@@ -13,38 +13,9 @@
 #   limitations under the License.
 
 from django import forms
-from django.contrib import admin
-#from django.contrib.flatpages.models import FlatPage
-#from django.contrib.flatpages.admin import FlatPageAdmin as FlatPageAdminOld
+
 
 class SubmitCommentForm(forms.Form):
     """ Manages forms related with comment requests.
     """
-    message = forms.CharField(min_length = 10, max_length = 400)
-
-
-# If you want to include TinyMCE
-#
-#class FlatPageForm(forms.ModelForm):
-#    title = forms.CharField(max_length = 100)
-#    #content = forms.CharField(widget=TinyMCE(attrs={'cols': 80, 'rows': 30}))
-#    categories = forms.SelectMultiple()
-#    lang = forms.Select()
-#
-#    class Meta:
-#        model = FlatPage
-#
-#    class Media:
-#        js = ('js/tiny_mce/tiny_mce.js',
-#              'js/tiny_mce/textareas.js',)
-#
-#
-#
-#class FlatPageAdmin(FlatPageAdminOld):
-#    class Media:
-#        js = ('js/tiny_mce/tiny_mce.js',
-#              'js/tiny_mce/textareas.js',)
-#
-## We have to unregister it, and then reregister
-#admin.site.unregister(FlatPage)
-#admin.site.register(FlatPage, FlatPageAdmin)
+    message = forms.CharField(min_length=10, max_length=400)

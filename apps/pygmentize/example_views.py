@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from pygmentize import pygmentizer
 
+
 def pygmentize_example(request):
 
     some_text = """
@@ -17,4 +18,6 @@ def pygmentize_example(request):
         "pygmentized_text": pygmentizer.pygmentize(some_text),
         "not_pygmentized_text": some_text
     }
-    return render_to_response('pygmentize_example.html', vars, context_instance=RequestContext(request))
+    return render_to_response(
+        'pygmentize_example.html', vars,
+        context_instance=RequestContext(request))

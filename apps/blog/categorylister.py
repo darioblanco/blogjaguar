@@ -22,8 +22,7 @@ class CategoryLister():
     def __init__(self, l):
         self.language = l
 
-
     def get_categories(self):
         """ Returns the category list for the selected language.
         """
-        return Category.objects.filter(lang = self.language).order_by('title')
+        return Category.objects.filter(lang=self.language).order_by('title')
