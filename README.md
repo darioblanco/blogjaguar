@@ -30,6 +30,8 @@ be directed to my email address: dblancoit@gmail.com
 
 Follow me on twitter: @darioblanco
 
+# REQUIREMENTS
+Python 2.7+
 
 # DEPENDENCIES
 Pygments (http://pygments.org/) 
