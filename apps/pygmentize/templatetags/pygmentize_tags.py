@@ -7,10 +7,14 @@ from django.utils.safestring import mark_safe
 from pygmentize import pygmentizer
 from pygments.lexers import HtmlLexer
 
+
 register = Library()
 
-# usage: {% pygmentize "language" %}...language text...{% endpygmentize %}
+
 class PygmentizeNode(Node):
+    """ usage:
+    {% pygmentize "language" %}...language text...{% endpygmentize %}
+    """
     def __init__(self, nodelist, *varlist):
         self.nodelist, self.vlist = (nodelist, varlist)
 
@@ -25,6 +29,7 @@ class PygmentizeNode(Node):
 
         return highlight(self.nodelist.render(context), lexer, HtmlFormatter())
 
+
 def pygmentize(parser, token):
     nodelist = parser.parse(('endpygmentize',))
     parser.delete_first_token()
@@ -32,20 +37,24 @@ def pygmentize(parser, token):
 
 pygmentize_tag = register.tag(pygmentize)
 
+
 """
 checks permission
 returns boolean
 
 usage: {{ your_var|pygmentize:'language' }}
 """
+
+
 @register.filter
 @stringfilter
-def pygmentize(text,language):
+def pygmentize(text, language):
     try:
         lexer = get_lexer_by_name(language, encoding='UTF-8')
     except:
         lexer = HtmlLexer()
     return mark_safe(highlight(text, lexer, HtmlFormatter()))
+
 
 @register.filter
 @stringfilter
