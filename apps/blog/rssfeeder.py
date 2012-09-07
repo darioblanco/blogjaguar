@@ -19,21 +19,21 @@ from darioblog.settings import SITE_URL
 
 
 class LatestEntriesFeed(Feed):
-	""" Creates a RSS feed of the latest blog posts	
-	"""
+    """ Creates a RSS feed of the latest blog posts"""
 
-	title = "The soft jaguar"
-	link = "/siteentries/"
-	description = "Blog RSS Feed"
-	
-	def items(self):
-		return Entry.objects.filter(published = True).order_by('-date');
-		
-	def item_title(self, item):
-		return item.title
-		
-	def item_description(self, item):
-		return item.post[0:200]
-		
-	def item_link(self, item):
-		return SITE_URL+reverse('blog.views.single_entry_view', args=(item.id,))
+    title = "The soft jaguar"
+    link = "/siteentries/"
+    description = "Blog RSS Feed"
+
+    def items(self):
+        return Entry.objects.filter(published=True).order_by('-date')
+
+    def item_title(self, item):
+        return item.title
+
+    def item_description(self, item):
+        return item.post[0:200]
+
+    def item_link(self, item):
+        return SITE_URL + reverse(
+            'blog.views.single_entry_view', args=(item.id,))

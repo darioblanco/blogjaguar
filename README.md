@@ -1,19 +1,4 @@
-*************************************************************************
-Copyright 2011 Darío Blanco Iturriaga
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*************************************************************************
-
+# Blogjaguar, a Django blog software
 
 Although Apache Software License doesn't require to distribute the source
 code, I think that it might be useful to share my work with other
@@ -30,30 +15,31 @@ be directed to my email address: dblancoit@gmail.com
 
 Follow me on twitter: @darioblanco
 
+## Requirements
+Python 2.7+
 
-# DEPENDENCIES
-Pygments (http://pygments.org/) 
+## Python dependencies
+Create a new virtualenv and run the following command:
+``pip install -r requirements.txt``
 
-    sudo easy_install Pygments
+## Things to improve (it was my first Django app)
+Check the issues page
 
-
-# THINGS TO IMPROVE (it was my first Django app)
-* Use of Django paginator instead of my own paginator system (blogpage.py)
-* Use of Django comments system instead of my own comments system
-
-
-# TODO
-* Login with twitter, google+, yahoo id.
-* Own search engine.
-* Photo gallery app (related with the blog entries).
-* Better entry and comment system.
-* Better manual and code documentation.
-* Study the use of Django Generic Views (it was my first approach to the Django view
-system and it could be significantly improved).
-* Adding youtube and video functions to the Dojo Rich Text Editor.
-* File explorer.
-
-
-# RELATED PROJECTS
+## Related projects
 * django-pygments (https://github.com/sniku/django-pygments)
 * django-facebook-oauth (https://github.com/ryanmark/django_facebook_oauth) with little modifications
+
+## License
+> Copyright 2011 Darío Blanco Iturriaga
+
+> Licensed under the Apache License, Version 2.0 (the "License");
+> you may not use this file except in compliance with the License.
+> You may obtain a copy of the License at
+
+>     http://www.apache.org/licenses/LICENSE-2.0
+
+> Unless required by applicable law or agreed to in writing, software
+> distributed under the License is distributed on an "AS IS" BASIS,
+> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+> See the License for the specific language governing permissions and
+> limitations under the License.
