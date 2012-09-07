@@ -21,17 +21,20 @@ from settings import DEBUG, STATIC_ROOT
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'^$', 'blog.views.blog_entries_view', {'page_id': 0}, name="index"),
     (r'^blog/', include('blog.urls')),
-    (r'^i18n/', include('django.conf.urls.i18n')), # Multilanguage
-	url(r'^feed/$', LatestEntriesFeed(), name="feed"),
+    (r'^i18n/', include('django.conf.urls.i18n')),  # Multilanguage
+    url(r'^feed/$', LatestEntriesFeed(), name="feed"),
     url(r'^facebook/login/$', 'facebook.views.login', name="facebook_login"),
-    url(r'^facebook/authentication_callback/$', 'facebook.views.authentication_callback', name="facebook_callback"),
+    url(r'^facebook/authentication_callback/$',
+        'facebook.views.authentication_callback', name="facebook_callback"),
     url(r'^admin/', include(admin.site.urls), name="admin"),
 )
 
-urlpatterns += patterns('blog.views',
+urlpatterns += patterns(
+    'blog.views',
     url(r'^categories/', 'blog_category_view', name="categories"),
     url(r'^about/', 'aboutme_view', name="about"),
     url(r'^privacy_policy/', 'privacy_view', name="privacy_policy"),
@@ -44,15 +47,9 @@ urlpatterns += patterns('blog.views',
 if DEBUG:
     urlpatterns += patterns(
         '',
-#        url(r'^media/(.*)$', 'django.views.static.serve',
-#            {'document_root': MEDIA_ROOT,
-#            'show_indexes' : True
-#            }),
         url(r'^static/(.*)$', 'django.views.static.serve',
             {'document_root': STATIC_ROOT,
-             'show_indexes' : True
-            }),
+             'show_indexes': True}),
         url(r'^admin-media/(.*)$', 'django.views.static.serve',
             {'document_root': join(dirname(admin.__file__), 'media')}),
-        )
-
+    )
