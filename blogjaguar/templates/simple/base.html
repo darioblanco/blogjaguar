@@ -1,0 +1,118 @@
+<!doctype html {% block html_type %} {% endblock %}>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+{% load i18n %}
+{% load tags %}
+{% url index as index_url %}
+{% url categories as categories_url %}
+{% url archives as archives_url %}
+{% url about as about_url %}
+
+<head>
+    <meta charset="utf-8" />
+    {# Always force latest IE rendering engine (even in intranet) & Chrome Frame #}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>{% block title %} The soft jaguar {% endblock %}</title>
+    <meta name="description" content="" />
+     {# Mobile viewport optimized: j.mp/bplateviewport #}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{{STATIC_URL}}css/style.css" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold" rel="stylesheet" />
+    {# Load Droid Serif from Google Fonts #}
+    {# All JavaScript at the bottom, except for Modernizr and Respond. #}
+    {# Modernizr enables HTML5 elements & feature detects; Respond is a polyfill for min/max-width CSS3 Media Queries #}
+    <script src="{{STATIC_URL}}js/modernizr-1.7.min.js"></script>
+    <script src="{{STATIC_URL}}js/respond.min.js"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27981742-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    {% block header %}{% endblock %}
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <header id="header" class="clearfix" role="banner">
+            <hgroup>
+                <h1 id="site-title"><a href="{% url index %}">The soft jaguar</a></h1>
+                <h2 id="site-description">{% trans "A simple blog, with feline pragmatism" %}</h2>
+            </hgroup>
+        </header> {# #header #}
+
+        <div id="main" class="clearfix">
+            <nav id="menu" class="clearfix" role="navigation">
+                <ul>
+                    {% block nav_index %}<li>{% endblock %}
+                        <a href="{{index_url}}">{% trans "Blog" %}</a>
+                    </li>
+                    {% block nav_categories %}<li>{% endblock %}
+                        <a href="{{categories_url}}">{% trans "Categories" %}</a>
+                        <ul>
+                        {% for cat in cat_list %}
+                            <li><a href="{% url category_entries cat.id %}">{{cat.title}}</a></li>
+                        {% endfor %}
+                        </ul>
+                    </li>
+                    {% block nav_archives %}<li>{% endblock %}
+                        <a href="{{archives_url}}">{% trans "Archives" %}</a>
+                    </li>
+                    {% block nav_about %}<li>{% endblock %}
+                        <a href="{{about_url}}">{% trans "About Me" %}</a>
+                    </li>
+                </ul>
+                <div class="language">
+                    <form action="/i18n/setlang/" method="post">
+                        {% csrf_token %}
+                        {% get_language_info_list for LANGUAGES as languages %}
+                        {% for language in languages %}
+                            <input type="image" value ="{{language.code}}" name="language" src="{{STATIC_URL}}images/{{language.code}}.png" alt="langform" class="send"/>
+                        {% endfor %}
+                    </form>
+                </div>
+            </nav> {# #nav #}
+
+            <!--[if lte IE 7]>
+                <div class="ie warning"></div>
+            <![endif]-->
+
+            <div id="content" role="main">
+                {% block mainbar %}
+                {% endblock %}
+            </div> <!-- #content -->
+
+            {% include "sidebar.html" %}
+
+        </div> {# #main #}
+
+        <footer id="footer">
+            <p>
+                Copyright &copy; 2011 <a href="http://darioblanco.com">darioblanco.com</a>
+                <span class="sep">|</span>
+                Developed by <a href="http://darioblanco.com" title="Developed by Darío Blanco">Darío Blanco</a>
+                <span class="sep">|</span>
+                <a href="{% url privacy_policy %}">{% trans "Privacy policy" %}</a>
+                <span class="sep">|</span>
+                <a href="http://www.apache.org/licenses/LICENSE-2.0.html" target="_blank">{% trans "License" %}</a>
+            </p>
+        </footer> {# #footer #}
+
+        <div class="clear"></div>
+
+    </div> {# #wrapper #}
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <script src="{{STATIC_URL}}js/script.js"></script>
+
+</body>
+
+</html>

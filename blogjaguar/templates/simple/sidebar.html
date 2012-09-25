@@ -1,0 +1,73 @@
+{% load i18n %}
+
+<aside id="sidebar" role="complementary">
+
+    <aside class="widget">
+        {% if not user.is_authenticated %}
+            <a href="{% url facebook_login %}"><img src="{{ STATIC_URL }}images/loginfacebook.png" alt="facebook login"/></a>
+        {% else %}
+            {% if user.is_active %}
+                {% trans "Welcome " %}{{ user.username }}
+                {% if not user.is_superuser %}
+                    <img src="http://graph.facebook.com/{{ user.get_profile.facebook_id }}/picture" width="15" height="15"/>
+                {% endif %}
+                - <a href="{% url logout %}">Logout</a>
+            {% else %}
+                {% trans "The user is not active" %}
+            {% endif %}
+        {% endif %}
+    </aside>
+
+    {% if user.is_authenticated and user.is_superuser %}
+        <aside class="widget">
+            <h3>Admin</h3>
+            <ul>
+                <li><a href="{{STATIC_URL}}../admin">{% trans "Administration panel" %}</a></li>
+                <li><a href="{{STATIC_URL}}../admin/blog/entry/add/"> {% trans "Create entry" %}</a></li>
+            </ul>
+        </aside>
+    {% endif %}
+
+    <!-- Non working search
+    <aside class="widget">
+        <form action="#" class="searchform">
+            <input type="search" results="10" placeholder="Search..." />
+            <input type="submit" value="Search" />
+        </form>
+        </aside> -->
+
+    <aside class="widget">
+        <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+        <script>
+        new TWTR.Widget({
+          version: 2,
+          type: 'profile',
+          rpp: 4,
+          interval: 30000,
+          width: 200,
+          height: 300,
+          theme: {
+            shell: {
+              background: '#dcbe6a',
+              color: '#ffffff'
+            },
+            tweets: {
+              background: '#ffffff',
+              color: '#000000',
+              links: '#dcbe6a'
+            }
+          },
+          features: {
+            scrollbar: false,
+            loop: false,
+            live: false,
+            hashtags: true,
+            timestamp: true,
+            avatars: false,
+            behavior: 'all'
+          }
+        }).render().setUser('darioblanco').start();
+        </script>
+    </aside> <!-- .widget -->
+
+</aside> <!-- #sidebar -->
