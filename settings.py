@@ -23,6 +23,13 @@ ADMINS = (
     #('yourname', 'your@email.com'),
 )
 
+# Root path of the project
+PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
+
+# For holding the different apps in the apps folder,
+# we add the apps path to the root
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
+
 MANAGERS = ADMINS
 
 SITE_URL = 'http://localhost:8000'
@@ -31,7 +38,7 @@ DATABASES = {
     'default': {
         # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3', 'oracle'
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/sharker/Programming/blogjaguar/blogjaguar.db',
+        'NAME': os.path.join(PROJECT_ROOT, 'blogjaguar.db'),
         'USER': '',  # Not used with sqlite3.
         'PASSWORD': '',  # Not used with sqlite3.
         'HOST': '',  # Set to empty string for localhost. Not used with sqlite3
@@ -69,12 +76,6 @@ USE_I18N = True
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale
 USE_L10N = True
-
-# Root path of the project
-PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
-# For holding the different apps in the apps folder,
-# we add the apps path to the root
-sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 ## Absolute filesystem path to the directory that will hold user-uploaded files
 #MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
