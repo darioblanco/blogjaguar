@@ -1,0 +1,252 @@
+# Fichero de traducción de inglés a español.
+# Copyright (C) 2011 The soft jaguar
+# This file is distributed under the same license as the PACKAGE package.
+# Darío Blanco <dblancoit@gmail.com>, 2011.
+#
+ 
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-12-31 17:59+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Darío Blanco <dblancoit@gmail.com>\n"
+"Language-Team: Español <dblancoit@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: settings.py:56
+msgid "Spanish"
+msgstr "Español"
+
+#: settings.py:57
+msgid "English"
+msgstr "Inglés"
+
+#: apps/blog/models.py:50 templates/header.html:8 templates/sidebar.html:15
+#: templates/blog/category_view.html:4
+msgid "Categories"
+msgstr "Categorías"
+
+#: apps/blog/models.py:79
+ 
+msgid "Entries"
+msgstr "Artículos"
+
+#: apps/blog/models.py:111
+ 
+msgid "CommentVotes"
+msgstr "Comentarios"
+
+#: apps/blog/models.py:121
+msgid "EntryVotes"
+msgstr "Votos de Artículos"
+
+#: templates/footer.html:6
+msgid "Image Gallery"
+msgstr "Galería de Imágenes"
+
+#: templates/footer.html:24
+msgid "Featured links"
+msgstr "Enlaces destacados"
+
+#: templates/footer.html:30
+msgid "I'm a social animal"
+msgstr "Soy un animal social"
+
+#: templates/footer.html:32
+msgid "Follow me on Twitter"
+msgstr "Sígueme en Twitter"
+
+#: templates/footer.html:35
+msgid "Add me on Facebook"
+msgstr "Agrégame en Facebook"
+
+#: templates/footer.html:38
+msgid "Add me on LinkedIn"
+msgstr "Agrégame en LinkedIn"
+
+#: templates/footer.html:41
+msgid "Follow my code on github"
+msgstr "Sigue mi código en github"
+
+#: templates/footer.html:44
+msgid "Add me on Google +"
+msgstr "Agrégame en Google +"
+
+#: templates/footer.html:47
+msgid "Subscribe via RSS"
+msgstr "Subscríbete vía RSS"
+
+#: templates/footer.html:50
+msgid "Contact me by email"
+msgstr "Contáctame por email"
+
+#: templates/footer.html:53
+msgid "Follow my videos on Youtube"
+msgstr "Sigue mis vídeos en Youtube"
+
+#: templates/footer.html:56
+msgid "See what I listen to on last.fm"
+msgstr "Mira que escucho en last.fm"
+
+#: templates/footer.html:64 templates/blog/privacy_view.html:4
+#: templates/blog/privacy_view.html.py:9
+msgid "Privacy policy"
+msgstr "Política de privacidad"
+
+#: templates/footer.html:65
+msgid "License"
+msgstr "Licencia"
+
+#: templates/footer.html:67
+msgid "Developed with"
+msgstr "Desarrollado con"
+
+#: templates/header.html:7
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/header.html:9 templates/blog/archives_view.html:4
+#: templates/blog/archives_view.html:8
+msgid "Archives"
+msgstr "Archivos"
+
+#: templates/header.html:10
+msgid "About Me"
+msgstr "Acerca de mí"
+
+#: templates/header.html:32
+msgid "Welcome "
+msgstr "Bienvenido "
+
+#: templates/header.html:38
+msgid "The user is not active"
+msgstr "El usuario no está activo"
+
+#: templates/header.html:44
+msgid "A simple blog, with feline pragmatism"
+msgstr "Un blog simple, con pragmatismo felino"
+
+#: templates/sidebar.html:28
+msgid "Administration panel"
+msgstr "Panel de administración"
+
+#: templates/sidebar.html:29
+msgid "Create entry"
+msgstr "Crear entrada"
+
+#: templates/blog/aboutme_view.html:4 templates/blog/aboutme_view.html.py:9
+msgid "About me"
+msgstr "Acerca de mí"
+
+#: templates/blog/aboutme_view.html:14
+ 
+msgid ""
+"My name is Darío Blanco and I live in Madrid, Spain. I was born in 1987, in "
+"Burgos (the never ending winter city). I have a Bachelor's Degree in "
+"Computer Engineering from the University of Burgos and currently I'm "
+"finishing my Master's Degree in Computer Engineering from the Polytechnic "
+"University of Madrid."
+msgstr ""
+"Mi nombre es Darío Blanco y vivo en Madrid, España. Nací en 1987, en la "
+"ciudad del invierno infinito: Burgos. Soy diplomado en Ingeniería Técnica en "
+"Informática de Gestión por la Universidad de Burgos y actualmente estoy "
+"acabando Ingeniería Informática en la Universidad Politécnica de Madrid."
+
+#: templates/blog/aboutme_view.html:15
+ 
+msgid ""
+"I started coding in 2005 using C, although I've used several  languages "
+"before not worth mentioning, then I tried Java (my most used language around "
+"almost 6 years) and a lot of Android, and now I'm doing projects using "
+"Python. Other languages that I've experienced have been PHP, ADA, C#, LISP, "
+"Pascal and Fortran. I love learning new technologies and languages, solve "
+"problems, take on responsibility and work in a team if I can."
+msgstr ""
+"Comencé programando en 2005, concretamente en C, aunque anteriormente he "
+"utilizado varios lenguajes de programación que no creo necesario mencionar. "
+"Entonces probé Java (mi lenguaje más usado durante casi 6 años) y he tocado "
+"bastante de Android, ahora estoy realizando proyectos con Python. Otros "
+"lenguajes que he utilizado en mayor o menor medida han sido PHP, ADA, C#, "
+"LISP, Pascal y Fortran. Me encanta aprender nuevas tecnologías y lenguajes, "
+"resolver problemas, tener cada vez más responsabilidades y trabajar en "
+"equipo."
+
+#: templates/blog/archives_view.html:13
+msgid "entries"
+msgstr "artículos"
+
+#: templates/blog/blog_singlepost.html:30
+msgid "Posted by"
+msgstr "Escrito por"
+
+#: templates/blog/blog_singlepost.html:32
+msgid "Filed under"
+msgstr "Archivado bajo"
+
+#: templates/blog/blog_singlepost.html:37
+msgid " guys think that this entry is ON FIRE"
+msgstr " personajes piensan que este artículo está ON FIRE"
+
+#: templates/blog/blog_singlepost.html:56
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/blog/blog_singlepost.html:59 templates/blog/blog_view.html:25
+#: templates/blog/category_view.html:13
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/blog/blog_singlepost.html:63
+msgid "I think this entry is ON FIRE"
+msgstr "Pienso que este artículo está ON FIRE"
+
+#: templates/blog/blog_singlepost.html:65
+#: templates/blog/blog_singlepost.html:126
+msgid "I like it"
+msgstr "Me gusta esto"
+
+#: templates/blog/blog_singlepost.html:69
+#: templates/blog/blog_singlepost.html:129
+ 
+msgid "Only logged users can rate articles"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/blog/blog_singlepost.html:73
+msgid "Response"
+msgstr "Respuesta"
+
+#: templates/blog/blog_singlepost.html:78
+msgid "Leave a reply"
+msgstr "Deja un comentario"
+
+#: templates/blog/blog_singlepost.html:80
+msgid "Only authenticated users can leave replies"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/blog/blog_singlepost.html:86
+msgid "Message"
+msgstr "Mensaje"
+
+#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+msgid "by"
+msgstr "por"
+
+#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+msgid "in"
+msgstr "en"
+
+#: templates/blog/blog_view.html:22
+msgid "Read"
+msgstr "Leer más"
+
+#: templates/blog/search_view.html:7 templates/blog/search_view.html.py:10
+msgid "Search"
+msgstr "Búsqueda"
+
+#: templates/blog/search_view.html:11
+msgid "Entries searched by "
+msgstr "Entradas buscadas por "
