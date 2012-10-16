@@ -13,16 +13,19 @@
 #   limitations under the License.
 
 import datetime
+
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
-from blog.models import Entry, Link, Comment, EntryVotes, CommentVotes
+from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.core.urlresolvers import reverse
+
+from blog.models import Entry, Link, Comment, EntryVotes, CommentVotes, AboutMe
 from blog.blogpage import BlogPage
 from blog.votes import Votes
 from blog.categorylister import CategoryLister
 from blog.forms import SubmitCommentForm
-from django.core.urlresolvers import reverse
 
 # TODO: generic views
 # (https://docs.djangoproject.com/en/1.3/topics/class-based-views/)
@@ -34,8 +37,8 @@ from django.core.urlresolvers import reverse
 
 
 def __staticpage_template_gen(request, template_path):
-    """ Private function to generate the more simple templates in the blog.
-    Needed to accomplish the DRY principles.
+    """Private function for generating simpler templates in the blog.
+    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
@@ -49,20 +52,29 @@ def __staticpage_template_gen(request, template_path):
     return t.render(c)
 
 
-def __entrypage_template_gen(request, template_path, entry_list, nav_list,
-                             page_id):
-    """ Private function to generate templates related to entries list.
-    Needed to accomplish the DRY principles.
+def __entrypage_template_gen(request, template_path, entry_list):
+    """Private function for generating templates related to entries list.
+    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
 
+    paginator = Paginator(entry_list, 10)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    try:
+        blog_list = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        blog_list = paginator.page(paginator.num_pages)
+
     c = RequestContext(request, {
         'cat_list': cl.get_categories(),
-        'blog_list': entry_list,
-        'nav_list': nav_list,
-        'page': int(page_id),  # For avoiding errors
+        'blog_list': blog_list,
         'link_list': Link.objects.all().order_by('order'),
     })
 
@@ -71,8 +83,8 @@ def __entrypage_template_gen(request, template_path, entry_list, nav_list,
 
 def __singleentry_template_gen(request, template_path, entry, comment_list,
                                form):
-    """ Private function to generate templates related to a single entry.
-    Needed to accomplish the DRY principles.
+    """Private function for generating templates related to a single entry.
+    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
@@ -94,7 +106,7 @@ def __singleentry_template_gen(request, template_path, entry, comment_list,
 
 
 def __archivepage_template_gen(request, template_path, entry_list):
-    """ Private function to generate templates related to entries archives.
+    """Private function for generating templates related to entries archives.
     Needed to accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
@@ -115,17 +127,18 @@ def __archivepage_template_gen(request, template_path, entry_list):
 ################
 
 
-def blog_entries_view(request, page_id):
-    """ Entries list by page (0 is the first and more recent page)"""
-    bp = BlogPage(request.LANGUAGE_CODE)
+def blog_entries_view(request):
+    """Entries list by page (0 is the first and more recent page)"""
     return HttpResponse(
         __entrypage_template_gen(
-            request, 'blog/main.html', bp.posts_page(page_id),
-            bp.get_nav_list(page_id), page_id))
+            request, 'blog/main.html',
+            Entry.objects.filter(
+                lang=request.LANGUAGE_CODE,
+                published=True).order_by('-date')))
 
 
 def single_entry_view(request, post_id):
-    """ Single entry details: entire text and comments"""
+    """Single entry details: entire text and comments"""
     return HttpResponse(
         __singleentry_template_gen(
             request, 'blog/singlepost.html',
@@ -134,35 +147,44 @@ def single_entry_view(request, post_id):
 
 
 def single_category_view(request, cat_id):
-    """ Entries list of a single category"""
-    bp = BlogPage(request.LANGUAGE_CODE)
+    """Entries list of a single category"""
     return HttpResponse(
         __entrypage_template_gen(
             request, 'blog/main.html',
-            Entry.objects.filter(cat__id=cat_id).order_by('-date'),
-            bp.get_nav_list(0), 0))
+            Entry.objects.filter(
+                lang=request.LANGUAGE_CODE,
+                cat__id=cat_id).order_by('-date')))
 
 
 def blog_category_view(request):
-    """ The entire blog category list with its description per category"""
+    """The entire blog category list with its description per category"""
     return HttpResponse(__staticpage_template_gen(
         request, 'blog/categories.html'))
 
 
 def aboutme_view(request):
-    """ About me static page"""
-    return HttpResponse(__staticpage_template_gen(
-        request, 'blog/aboutme.html'))
+    """About me static page"""
+    cl = CategoryLister(request.LANGUAGE_CODE)
+
+    t = loader.get_template('blog/aboutme.html')
+
+    c = RequestContext(request, {
+        'cat_list': cl.get_categories(),
+        'link_list': Link.objects.all().order_by('order'),
+        'about_text': AboutMe.objects.all()[0]
+    })
+
+    return HttpResponse(t.render(c))
 
 
 def privacy_view(request):
-    """ Static page which expands the privacy policy"""
+    """Static page which expands the privacy policy"""
     return HttpResponse(__staticpage_template_gen(
         request, 'blog/privacy.html'))
 
 
 def logout_request(request):
-    """ Login out with an user. When completed, redirects to the index page
+    """Login out with an user. When completed, redirects to the index page
     (blog list page 0)
     """
     logout(request)
@@ -170,7 +192,7 @@ def logout_request(request):
 
 
 def archive_view(request):
-    """ List of year and months with the number of entries related.
+    """List of year and months with the number of entries related.
     """
     bp = BlogPage(request.LANGUAGE_CODE)
     return HttpResponse(__archivepage_template_gen(
@@ -178,21 +200,21 @@ def archive_view(request):
 
 
 def archive_year_request(request, year_id):
-    """ List of entries related to a specific year"""
+    """List of entries related to a specific year"""
     bp = BlogPage(request.LANGUAGE_CODE)
     return HttpResponse(__archivepage_template_gen(
         request, 'blog/main.html', bp.posts_year(year_id)))
 
 
 def archive_month_request(request, month_id, year_id):
-    """ List of entries related to a specific year and month"""
+    """List of entries related to a specific year and month"""
     bp = BlogPage(request.LANGUAGE_CODE)
     return HttpResponse(__archivepage_template_gen(
         request, 'blog/main.html', bp.posts_month(month_id, year_id)))
 
 
 def comment_entry_request(request, post_id, user_id):
-    """ Triggered when a user inserts a comment in an specific entry"""
+    """Triggered when a user inserts a comment in an specific entry"""
     bp = Entry.objects.get(id=post_id)
     # Form management
     if request.method == 'POST':  # If the form has been submitted...
@@ -220,7 +242,7 @@ def comment_entry_request(request, post_id, user_id):
 
 
 def rate_entry_request(request, post_id, user_id):
-    """ Triggered when a user rates a specific entry"""
+    """Triggered when a user rates a specific entry"""
     entry = Entry.objects.get(id=post_id)
     user = User.objects.get(id=user_id)
     positive = True
@@ -242,7 +264,9 @@ def rate_entry_request(request, post_id, user_id):
 
 
 def rate_comment_request(request, post_id, comment_id, user_id):
-    """ Triggered when a user rates a specific comment from a specific entry"""
+    """Triggered when an user rates a specific comment
+    from a specific entry
+    """
     comment = Comment.objects.get(id=comment_id)
     user = User.objects.get(id=user_id)
     positive = True

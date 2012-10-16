@@ -569,7 +569,7 @@ input[type=submit]:hover {
 }
 
 /* Post content */
-.post .entry-content p {
+.post .entry-content {
 	text-align: justify;
 }
 
@@ -933,6 +933,41 @@ div.warning { margin-bottom: 20px; }
 
 .share {
 	padding: 14px 20px;
+}
+
+#pagination{
+	text-align: center;
+}
+
+.paginator-link,
+input[type=submit],
+legend {
+	background: #dcbd6a; /* Fallback */
+	background: -moz-linear-gradient(top, #dcbd6a 0%, #b09754 100%); /* FF 3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#dcbd6a), color-stop(100%,#b09754)); /* Chrome, Safari 4+ */
+	background: -webkit-linear-gradient(top, #dcbd6a 0%,#b09754 100%); /* Chrome 10+, Safari 5.1+ */
+	background: -o-linear-gradient(top, #dcbd6a 0%,#b09754 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #dcbd6a 0%,#b09754 100%); /* IE10+ */
+	background: linear-gradient(top, #dcbd6a 0%,#b09754 100%); /* W3C */
+
+	color: #fff;
+	border-color: transparent;
+	border-radius: 10px 0 10px 0;
+	font-weight: bold;
+	font-size: 11px;
+	padding: 14px 20px;
+	margin: 10px;
+	text-shadow: 0 1px 0 #e2b571;
+	-webkit-transition: all 100ms linear;
+	/*-moz-transition: all 100ms linear;*/
+	transition: all 100ms linear;
+}
+
+.paginator-link:hover,
+input[type=submit]:hover {
+	border-radius: 0 10px 0 10px;
+	color: #fff;
+	opacity: 1;
 }
 
 /**

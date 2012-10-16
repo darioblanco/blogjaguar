@@ -20,7 +20,6 @@ urlpatterns = patterns(
     url(r'^post(?P<post_id>\d+)/$', 'single_entry_view', name="singlepost"),
     url(r'^cat(?P<cat_id>\d+)/$', 'single_category_view',
         name="category_entries"),
-    url(r'^page(?P<page_id>\d+)/$', 'blog_entries_view', name="blogpage"),
     url(r'^archives/', 'archive_view', name="archives"),
     url(r'^archives-(?P<year_id>\d+)/$', 'archive_year_request',
         name="year_archives"),

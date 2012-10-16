@@ -18,73 +18,21 @@ from django.utils.translation import ugettext as _
 
 
 class BlogPage():
-    """ Refers to a page which lists 10 entries of the user's selected language
+    """ Refers to a page which lists diferent entries
+    with the user's selected language
     """
 
     def __init__(self, l):
         self.language = l
 
-    def __get_num_pages(self):
-        """ Returns the number of pages for a selected language
-        (ej: 5 pages => 0-4).
-        """
-        nposts = Entry.objects.filter(
-            lang=self.language, published=True).count()
-        return (nposts // 10) + 1
-
-    def get_nav_list(self, page):
-        """ Returns an adequate navigation list for a page
-        """
-        page = int(page)
-        nav_list = []
-        npages = self.__get_num_pages()
-
-        if page < npages:
-            if page < 3:  # if page is in the first 5 elements
-                if npages > 4:
-                    nav_list = [0, 1, 2, 3, 4]
-                elif npages == 4:
-                    nav_list = [0, 1, 2, 3]
-                elif npages == 3:
-                    nav_list = [0, 1, 2]
-                elif npages == 2:
-                    nav_list = [0, 1]
-                elif npages == 1:
-                    nav_list = [0]
-            elif page == (npages - 1):  # if page is the last page
-                nav_list = [page - 4, page - 3, page - 2, page - 1, page]
-            elif page == (npages - 2):  # if page is the second to last
-                nav_list = [page - 3, page - 2, page - 1, page, page + 1]
-            else:  # if page is in the middle
-                nav_list = [page - 2, page - 1, page, page + 1, page + 2]
-            return nav_list
-        else:
-            return False
-
-    def posts_page(self, page):
-        """ Returns the list of entries of a single page
-        (only in the user's selected language).
-        """
-        page = int(page)
-
-        lower_bound = page * 10
-        upper_bound = (page + 1) * 10
-
-        # Shows entries with id from lower_bound to upper_bound-1 (including)
-        entries = Entry.objects.filter(
-            lang=self.language, published=True).order_by(
-                '-date')[lower_bound:upper_bound]
-
-        return entries
-
     def posts_year(self, year):
-        """ Returns the list of entries of a selected year.
+        """ Returns the list of entries from a selected year.
         """
         return Entry.objects.filter(
             lang=self.language, published=True, date__year=year)
 
     def posts_month(self, month, year):
-        """ Returns the list of entries of a selected month and year.
+        """ Returns the list of entries from a selected month and year.
         """
         return Entry.objects.filter(
             lang=self.language, published=True, date__year=year,

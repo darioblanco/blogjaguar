@@ -11,12 +11,16 @@
 {% endblock %}
 
 {% block mainbar %}
-    {% for entry in blog_list %}
+    {% for entry in blog_list.object_list %}
         <article class="post">
             <h2 class="entry-title"><a href="{% url singlepost entry.id %}">{{entry.title}}</a></h2>
+
+            {% if entry.thumbnail %}
             <figure>
                 <a href="#"><img src="{{STATIC_URL}}images/thumbnail.jpg" alt="Post thumbnail" class="thumbnail alignleft" /></a>
             </figure>
+            {% endif %}
+
             <div class="entry-content">
                 {% autoescape off %}
                     {{ entry.preview|pygmentize_all }}
@@ -37,4 +41,11 @@
         </article> {# .post #}
         <hr /> {# Post separator #}
     {% endfor %}
+            {% if blog_list.has_previous %}
+                <a href="?page={{ blog_list.previous_page_number }}" class="paginator-link">{% trans "Previous" %}</a>
+            {% endif %}
+            {% trans "Page" %} {{blog_list.number}} {% trans "of" %} {{blog_list.paginator.num_pages}}
+            {% if blog_list.has_next %}
+                <a href="?page={{ blog_list.next_page_number }}" class="paginator-link">{% trans "Next" %}</a>
+            {% endif %}
 {% endblock %}

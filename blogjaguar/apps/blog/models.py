@@ -126,6 +126,17 @@ class Link(models.Model):
         return self.name
 
 
+class AboutMe(models.Model):
+    """ Represents an About Me entry"""
+    text = models.TextField()
+
+    def __unicode__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural = u'About Me'
+
+
 ##################################
 # For editing the admin interface
 ##################################
@@ -162,6 +173,11 @@ class LinkAdmin(admin.ModelAdmin):
     list_display = ('name', 'url', 'order')
 
 
+class AboutMeAdmin(admin.ModelAdmin):
+    """ Admin interface for AboutMe"""
+    list_display = ('text',)
+
+
 # Registering the models in the admin frontend
 admin.site.register(Entry, EntryAdmin)
 admin.site.register(Category, CategoryAdmin)
@@ -169,3 +185,4 @@ admin.site.register(Comment, CommentAdmin)
 admin.site.register(EntryVotes, EntryVotesAdmin)
 admin.site.register(CommentVotes, CommentVotesAdmin)
 admin.site.register(Link, LinkAdmin)
+admin.site.register(AboutMe, AboutMeAdmin)

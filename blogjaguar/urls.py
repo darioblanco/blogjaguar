@@ -23,7 +23,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^$', 'blog.views.blog_entries_view', {'page_id': 0}, name="index"),
+    url(r'^$', 'blog.views.blog_entries_view', name="index"),
     (r'^blog/', include('blog.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')),  # Multilanguage
     url(r'^feed/$', LatestEntriesFeed(), name="feed"),

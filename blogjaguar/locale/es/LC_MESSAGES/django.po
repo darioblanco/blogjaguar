@@ -3,147 +3,150 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Darío Blanco <dblancoit@gmail.com>, 2011.
 #
- 
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-31 17:59+0100\n"
+"POT-Creation-Date: 2012-09-30 13:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Darío Blanco <dblancoit@gmail.com>\n"
 "Language-Team: Español <dblancoit@gmail.com>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-#: settings.py:56
+#: settings.py:73
 msgid "Spanish"
 msgstr "Español"
 
-#: settings.py:57
+#: settings.py:74
 msgid "English"
 msgstr "Inglés"
 
-#: apps/blog/models.py:50 templates/header.html:8 templates/sidebar.html:15
-#: templates/blog/category_view.html:4
+#: apps/blog/models.py:48 templates/classic/header.html:8
+#: templates/classic/sidebar.html:15 templates/classic/blog/categories.html:4
+#: templates/simple/base.html:58 templates/simple/blog/categories.html:4
+#: templates/simple/blog/categories.html:10
 msgid "Categories"
 msgstr "Categorías"
 
-#: apps/blog/models.py:79
- 
+#: apps/blog/models.py:78
 msgid "Entries"
 msgstr "Artículos"
 
-#: apps/blog/models.py:111
- 
+#: apps/blog/models.py:107
 msgid "CommentVotes"
 msgstr "Comentarios"
 
-#: apps/blog/models.py:121
+#: apps/blog/models.py:116
 msgid "EntryVotes"
 msgstr "Votos de Artículos"
 
-#: templates/footer.html:6
+#: templates/classic/footer.html:6
 msgid "Image Gallery"
 msgstr "Galería de Imágenes"
 
-#: templates/footer.html:24
+#: templates/classic/footer.html:24
 msgid "Featured links"
 msgstr "Enlaces destacados"
 
-#: templates/footer.html:30
+#: templates/classic/footer.html:30
 msgid "I'm a social animal"
 msgstr "Soy un animal social"
 
-#: templates/footer.html:32
+#: templates/classic/footer.html:32
 msgid "Follow me on Twitter"
 msgstr "Sígueme en Twitter"
 
-#: templates/footer.html:35
+#: templates/classic/footer.html:35
 msgid "Add me on Facebook"
 msgstr "Agrégame en Facebook"
 
-#: templates/footer.html:38
+#: templates/classic/footer.html:38
 msgid "Add me on LinkedIn"
 msgstr "Agrégame en LinkedIn"
 
-#: templates/footer.html:41
+#: templates/classic/footer.html:41
 msgid "Follow my code on github"
 msgstr "Sigue mi código en github"
 
-#: templates/footer.html:44
+#: templates/classic/footer.html:44
 msgid "Add me on Google +"
 msgstr "Agrégame en Google +"
 
-#: templates/footer.html:47
+#: templates/classic/footer.html:47
 msgid "Subscribe via RSS"
 msgstr "Subscríbete vía RSS"
 
-#: templates/footer.html:50
+#: templates/classic/footer.html:50
 msgid "Contact me by email"
 msgstr "Contáctame por email"
 
-#: templates/footer.html:53
+#: templates/classic/footer.html:53
 msgid "Follow my videos on Youtube"
 msgstr "Sigue mis vídeos en Youtube"
 
-#: templates/footer.html:56
+#: templates/classic/footer.html:56
 msgid "See what I listen to on last.fm"
 msgstr "Mira que escucho en last.fm"
 
-#: templates/footer.html:64 templates/blog/privacy_view.html:4
-#: templates/blog/privacy_view.html.py:9
+#: templates/classic/footer.html:64 templates/classic/blog/privacy.html:4
+#: templates/classic/blog/privacy.html:9 templates/simple/base.html:102
+#: templates/simple/blog/privacy.html:4 templates/simple/blog/privacy.html:9
 msgid "Privacy policy"
 msgstr "Política de privacidad"
 
-#: templates/footer.html:65
+#: templates/classic/footer.html:65 templates/simple/base.html:104
 msgid "License"
 msgstr "Licencia"
 
-#: templates/footer.html:67
+#: templates/classic/footer.html:67
 msgid "Developed with"
 msgstr "Desarrollado con"
 
-#: templates/header.html:7
+#: templates/classic/header.html:7 templates/simple/base.html:55
 msgid "Blog"
 msgstr "Blog"
 
-#: templates/header.html:9 templates/blog/archives_view.html:4
-#: templates/blog/archives_view.html:8
+#: templates/classic/header.html:9 templates/classic/blog/archives.html:4
+#: templates/classic/blog/archives.html:8 templates/simple/base.html:66
+#: templates/simple/blog/archives.html:4
+#: templates/simple/blog/archives.html:10
 msgid "Archives"
 msgstr "Archivos"
 
-#: templates/header.html:10
+#: templates/classic/header.html:10 templates/simple/base.html:69
 msgid "About Me"
 msgstr "Acerca de mí"
 
-#: templates/header.html:32
+#: templates/classic/header.html:27 templates/simple/sidebar.html:10
 msgid "Welcome "
 msgstr "Bienvenido "
 
-#: templates/header.html:38
+#: templates/classic/header.html:33 templates/simple/sidebar.html:16
 msgid "The user is not active"
 msgstr "El usuario no está activo"
 
-#: templates/header.html:44
+#: templates/classic/header.html:39 templates/simple/base.html:47
 msgid "A simple blog, with feline pragmatism"
 msgstr "Un blog simple, con pragmatismo felino"
 
-#: templates/sidebar.html:28
+#: templates/classic/sidebar.html:28 templates/simple/sidebar.html:25
 msgid "Administration panel"
 msgstr "Panel de administración"
 
-#: templates/sidebar.html:29
+#: templates/classic/sidebar.html:29 templates/simple/sidebar.html:26
 msgid "Create entry"
 msgstr "Crear entrada"
 
-#: templates/blog/aboutme_view.html:4 templates/blog/aboutme_view.html.py:9
+#: templates/classic/blog/aboutme.html:4 templates/classic/blog/aboutme.html:9
+#: templates/simple/blog/aboutme.html:4 templates/simple/blog/aboutme.html:10
 msgid "About me"
 msgstr "Acerca de mí"
 
-#: templates/blog/aboutme_view.html:14
- 
+#: templates/classic/blog/aboutme.html:14
 msgid ""
 "My name is Darío Blanco and I live in Madrid, Spain. I was born in 1987, in "
 "Burgos (the never ending winter city). I have a Bachelor's Degree in "
@@ -156,8 +159,7 @@ msgstr ""
 "Informática de Gestión por la Universidad de Burgos y actualmente estoy "
 "acabando Ingeniería Informática en la Universidad Politécnica de Madrid."
 
-#: templates/blog/aboutme_view.html:15
- 
+#: templates/classic/blog/aboutme.html:15
 msgid ""
 "I started coding in 2005 using C, although I've used several  languages "
 "before not worth mentioning, then I tried Java (my most used language around "
@@ -175,78 +177,117 @@ msgstr ""
 "resolver problemas, tener cada vez más responsabilidades y trabajar en "
 "equipo."
 
-#: templates/blog/archives_view.html:13
+#: templates/classic/blog/archives.html:13
+#: templates/simple/blog/archives.html:16
 msgid "entries"
 msgstr "artículos"
 
-#: templates/blog/blog_singlepost.html:30
-msgid "Posted by"
-msgstr "Escrito por"
-
-#: templates/blog/blog_singlepost.html:32
-msgid "Filed under"
-msgstr "Archivado bajo"
-
-#: templates/blog/blog_singlepost.html:37
-msgid " guys think that this entry is ON FIRE"
-msgstr " personajes piensan que este artículo está ON FIRE"
-
-#: templates/blog/blog_singlepost.html:56
-msgid "Comments"
-msgstr "Comentarios"
-
-#: templates/blog/blog_singlepost.html:59 templates/blog/blog_view.html:25
-#: templates/blog/category_view.html:13
+#: templates/classic/blog/categories.html:13
+#: templates/classic/blog/main.html:31
+#: templates/classic/blog/singlepost.html:66
 msgid "Edit"
 msgstr "Editar"
 
-#: templates/blog/blog_singlepost.html:63
-msgid "I think this entry is ON FIRE"
-msgstr "Pienso que este artículo está ON FIRE"
-
-#: templates/blog/blog_singlepost.html:65
-#: templates/blog/blog_singlepost.html:126
-msgid "I like it"
-msgstr "Me gusta esto"
-
-#: templates/blog/blog_singlepost.html:69
-#: templates/blog/blog_singlepost.html:129
- 
-msgid "Only logged users can rate articles"
-msgstr "Solo usuarios autentificados pueden dejar comentarios"
-
-#: templates/blog/blog_singlepost.html:73
-msgid "Response"
-msgstr "Respuesta"
-
-#: templates/blog/blog_singlepost.html:78
-msgid "Leave a reply"
-msgstr "Deja un comentario"
-
-#: templates/blog/blog_singlepost.html:80
-msgid "Only authenticated users can leave replies"
-msgstr "Solo usuarios autentificados pueden dejar comentarios"
-
-#: templates/blog/blog_singlepost.html:86
-msgid "Message"
-msgstr "Mensaje"
-
-#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+#: templates/classic/blog/main.html:17 templates/classic/blog/search.html:15
+#: templates/simple/blog/main.html:35 templates/simple/blog/singlepost.html:39
 msgid "by"
 msgstr "por"
 
-#: templates/blog/blog_view.html:11 templates/blog/search_view.html:15
+#: templates/classic/blog/main.html:17 templates/classic/blog/search.html:15
 msgid "in"
 msgstr "en"
 
-#: templates/blog/blog_view.html:22
+#: templates/classic/blog/main.html:28
 msgid "Read"
 msgstr "Leer más"
 
-#: templates/blog/search_view.html:7 templates/blog/search_view.html.py:10
+#: templates/classic/blog/search.html:7 templates/classic/blog/search.html:10
 msgid "Search"
 msgstr "Búsqueda"
 
-#: templates/blog/search_view.html:11
+#: templates/classic/blog/search.html:11
 msgid "Entries searched by "
 msgstr "Entradas buscadas por "
+
+#: templates/classic/blog/singlepost.html:37
+msgid "Posted by"
+msgstr "Escrito por"
+
+#: templates/classic/blog/singlepost.html:39
+msgid "Filed under"
+msgstr "Archivado bajo"
+
+#: templates/classic/blog/singlepost.html:44
+msgid " guys think that this entry is ON FIRE"
+msgstr " personajes piensan que este artículo está ON FIRE"
+
+#: templates/classic/blog/singlepost.html:63
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/classic/blog/singlepost.html:70
+msgid "I think this entry is ON FIRE"
+msgstr "Pienso que este artículo está ON FIRE"
+
+#: templates/classic/blog/singlepost.html:72
+#: templates/classic/blog/singlepost.html:133
+msgid "I like it"
+msgstr "Me gusta esto"
+
+#: templates/classic/blog/singlepost.html:76
+#: templates/classic/blog/singlepost.html:136
+msgid "Only logged users can rate articles"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/classic/blog/singlepost.html:80
+msgid "Response"
+msgstr "Respuesta"
+
+#: templates/classic/blog/singlepost.html:85
+msgid "Leave a reply"
+msgstr "Deja un comentario"
+
+#: templates/classic/blog/singlepost.html:87
+msgid "Only authenticated users can leave replies"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/classic/blog/singlepost.html:93
+msgid "Message"
+msgstr "Mensaje"
+
+#: templates/simple/blog/archives.html:20
+msgid "Month"
+msgstr "Mes"
+
+#: templates/simple/blog/archives.html:21
+msgid "Posts"
+msgstr "Posts"
+
+#: templates/simple/blog/main.html:31 templates/simple/blog/singlepost.html:35
+msgid "In"
+msgstr "En"
+
+#: templates/simple/blog/main.html:37 templates/simple/blog/singlepost.html:41
+msgid "on"
+msgstr "en"
+
+#: templates/simple/blog/main.html:39
+#, fuzzy
+msgid "Read more"
+msgstr "Leer más"
+
+#: templates/simple/blog/main.html:45
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/simple/blog/main.html:47
+msgid "Page"
+msgstr "Página"
+
+#: templates/simple/blog/main.html:47
+msgid "of"
+msgstr "de"
+
+#: templates/simple/blog/main.html:49
+msgid "Next"
+msgstr "Siguiente"
