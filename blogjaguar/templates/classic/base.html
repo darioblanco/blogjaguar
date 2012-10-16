@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+{% load i18n %}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{% block title %} The soft jaguar {% endblock %}</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="{{ STATIC_URL }}images/favicon.ico" type="image/x-icon"/>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jquery.lightbox-0.5.css" media="screen" />
+<link rel="stylesheet" href="{{ STATIC_URL }}css/pygments.css" type="text/css"/>
+{% block header %}{% endblock %}
+<meta property="og:image" content="{{STATIC_URL}}images/minijaguar.png"/>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.lightbox-0.5.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/cufon-yui.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/arial.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/cuf_run.js"></script>
+<script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+<link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/default.min.css">
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27981742-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body>
+<div class="main">
+  {% include "header.html" %}
+  <div class="content">
+    <div class="content_resize">
+      <div class="mainbar">
+      {% block mainbar %}
+      {% endblock %}
+      </div>
+      {% include "sidebar.html" %}
+      <div class="clr"></div>
+    </div>
+  </div>
+  {% include "footer.html" %}
+</div>
+</body>
+</html>

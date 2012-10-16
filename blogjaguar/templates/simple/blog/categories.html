@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "Categories" %} | The soft jaguar {% endblock %}
+{% block nav_categories %}<li class="current">{% endblock %}
+
+{% block mainbar %}
+    <article class="post">
+
+        <h1 class="entry-title">{% trans "Categories" %}</h1>
+
+        <div class="entry-content">
+            {% for cat in cat_list %}
+                <h3><a href="{% url category_entries cat.id %}">{{cat.title}}</a></h2>
+</h3>
+                <p>{{cat.desc}}</p>
+            {% endfor %}
+        </div>
+
+        <div class="clear"></div>
+
+    </article>
+{% endblock %}

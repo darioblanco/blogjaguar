@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load pygmentize_tags %}
+
+
+{% block title %} {{ entry.title }} | The soft jaguar {% endblock %}
+{% block header %}
+<meta property="og:url" content="http://thesoftjaguar.com{% url singlepost entry.id %}">
+<meta property="og:title" content="{{ entry.title }} | The soft jaguar">
+<meta property="og:type" content="blog">
+<meta property="fb:app_id" content="237060613017863">
+{% endblock %}
+
+
+{% block mainbar %}
+        {% get_current_language as LANGUAGE_CODE %}
+    {# Facebook script #}
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) {return;}
+          js = d.createElement(s); js.id = id;
+          {% if LANGUAGE_CODE == 'es' %}
+            js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1&appId=237060613017863";
+          {% else %}
+            js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=237060613017863";
+          {% endif %}
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    {# Google script#}
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+          {lang: '{{ LANGUAGE_CODE }}'}
+        </script>
+
+        <div class="article">
+          <h2>{{ entry.title }}</h2><div class="clr"></div>
+          <small>{% trans "Posted by" %} <a href="{% url about %}">{{ entry.author.first_name }} {{ entry.author.last_name }} ({{ entry.author.username }})</a>
+          <span>&nbsp;&bull;&nbsp;</span>
+          {% trans "Filed under" %}
+          {% for cat in entry.cat.all %}
+              <a href="{% url category_entries cat.id %}">{{ cat.title }}</a>{% if entry.cat.all|length > 1%},{% endif %}
+          {% endfor %}
+          <span>&nbsp;&bull;&nbsp;</span>
+          {% if entry.rate > 0 %} {{ entry.rate }} {% trans " guys think that this entry is ON FIRE" %}{% endif %}
+          </small><br/>
+          <div class="social_twitter">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="darioblanco" data-lang="{{ LANGUAGE_CODE }}">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+          </div>
+          <div class="social_google">
+              <g:plusone size="medium"></g:plusone>
+          </div>
+          <div class="social_facebook">
+            <div class="fb-like" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+          </div>
+          <br/>
+          <div class="text" align="justify">
+          {% autoescape off %}
+            {{ entry.post|pygmentize_all }}
+          {% endautoescape %}
+          </div>
+        </div>
+        <div class="article">
+          <p><strong>{% trans "Comments" %} ({{ comments.count }})</strong>  <span>&nbsp;&bull;&nbsp;</span>  {{ entry.date }}
+            {% if user.is_authenticated and user.is_superuser %}
+                <span>&nbsp;&bull;&nbsp;</span>
+                <a href="{{ STATIC_URL }}../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <form action="{% url rate_entry entry.id user.id %}" method="post">
+                    {% trans "I think this entry is ON FIRE" %}&nbsp;
+                {% csrf_token %}
+                    <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="{{ STATIC_URL }}images/like.gif" class="send" />
+{#                    <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="{{ STATIC_URL }}images/dislike.gif" class="send" />#}
+                </form>
+            {% else %}
+                {% trans "Only logged users can rate articles" %}
+            {% endif %}
+          </p>
+          <span>&nbsp;</span>
+          <h2><span>{{ comments.count }}</span> {% trans "Response" %}{% if comments.count > 1 %}s{% endif %}</h2><div class="clr"></div>
+
+
+
+        <div class="article">
+          <h2><span>{% trans "Leave a reply" %}</span></h2><div class="clr"></div>
+          {% if not user.is_authenticated %}
+            <br/>{% trans "Only authenticated users can leave replies" %}<br/>
+          {% else %}
+              <form method="post" id="leavereply" action="{% url comment_entry entry.id user.id %}">
+                  {% csrf_token %}
+                  <ol>
+                  <li>
+                    <label for="message">{% trans "Message" %}</label>
+                    <textarea id="message" name="message" rows="8" cols="50" required></textarea>
+                    <small>{{ form.message.errors }}</small>
+                  </li><li>
+                    <input type="image" name="imageField" id="imageField" src="{{ STATIC_URL }}images/submit.gif" class="send" />
+                    <div class="clr"></div>
+                  </li>
+                  </ol>
+              </form>
+          {% endif %}
+        <span>&nbsp;&nbsp;</span>
+        </div>
+
+          {% for comment in comments %}
+          <div class="comment">
+
+            <div class="info">
+                <div class="image">
+                {% if comment.author.is_superuser %}
+                    <img src="{{ STATIC_URL }}images/superuserpic.gif" width="40" height="40" alt="user" class="userpic" />
+                {% else %}
+                    <img src="http://graph.facebook.com/{{ comment.author.get_profile.facebook_id }}/picture" width="40" height="40" alt="user" class="userpic" />
+                {% endif %}
+                </div>
+                <div class="text">
+                    <strong>#{{ comment.num }}&nbsp;&nbsp;{{ comment.author.username }}</strong>
+                </div>
+            </div>
+
+            <div class="text">
+                {{ comment.text }}
+            </div>
+
+            <div class="footer">
+            {% if user.is_superuser %}
+                <form action="{% url rate_comment entry.id comment.id user.id %}" method="post">
+                    {% csrf_token %}
+                {{ comment.date }}
+                &nbsp;&nbsp;
+                {% if user.is_authenticated %}
+                        <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="{{ STATIC_URL }}images/like.gif" class="send" />
+{#                        <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="{{ STATIC_URL }}images/dislike.gif" class="send" />#}
+                {% else %}
+                    {% trans "Only logged users can rate articles" %}
+                {% endif %}
+                 &nbsp;&nbsp;
+                {% if comment.rate %}
+                    +{{ comment.rate }}
+                {% endif %}
+                &nbsp;&nbsp;
+                <a href="{{ STATIC_URL }}../admin/blog/comment/{{ comment.id }}">
+                   <img src="{{ STATIC_URL }}images/moderate.gif">
+                </a>
+                </form>
+            {% endif %}
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load pygmentize_tags %}
+
+{% block title %} Blog | The soft jaguar {% endblock %}
+{% block nav_index %}<li class="current">{% endblock %}
+
+{% block header %}
+    <meta property="og:url" content="http://thesoftjaguar.com">
+    <meta property="og:title" content="The soft jaguar">
+{% endblock %}
+
+{% block mainbar %}
+    {% for entry in blog_list.object_list %}
+        <article class="post">
+            <h2 class="entry-title"><a href="{% url singlepost entry.id %}">{{entry.title}}</a></h2>
+
+            {% if entry.thumbnail %}
+            <figure>
+                <a href="#"><img src="{{STATIC_URL}}images/thumbnail.jpg" alt="Post thumbnail" class="thumbnail alignleft" /></a>
+            </figure>
+            {% endif %}
+
+            <div class="entry-content">
+                {% autoescape off %}
+                    {{ entry.preview|pygmentize_all }}
+                {% endautoescape %}
+            </div> {# .entry-content #}
+            <footer class="post-meta">
+                <p>
+                    {% trans "In" %}
+                    {% for cat in entry.cat.all %}
+                        <a href="../../blog/cat{{ cat.id }}">{{ cat.title }}</a>,
+                    {% endfor %}
+                    {% trans "by" %}
+                    <span class="author vcard"><a class="url fn n" href="#">{{entry.author}}</a></span>
+                    {% trans "on" %} {{entry.date}}
+                </p>
+                <a href="#" class="more-link">{% trans "Read more" %}</a>
+            </footer> {# .post-meta #}
+        </article> {# .post #}
+        <hr /> {# Post separator #}
+    {% endfor %}
+            {% if blog_list.has_previous %}
+                <a href="?page={{ blog_list.previous_page_number }}" class="paginator-link">{% trans "Previous" %}</a>
+            {% endif %}
+            {% trans "Page" %} {{blog_list.number}} {% trans "of" %} {{blog_list.paginator.num_pages}}
+            {% if blog_list.has_next %}
+                <a href="?page={{ blog_list.next_page_number }}" class="paginator-link">{% trans "Next" %}</a>
+            {% endif %}
+{% endblock %}

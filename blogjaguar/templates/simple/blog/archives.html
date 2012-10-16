@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "Archives" %} | The soft jaguar {% endblock %}
+{% block nav_archives %}<li class="current">{% endblock %}
+
+{% block mainbar %}
+    <article class="post">
+
+        <h1 class="entry-title">{% trans "Archives" %}</h1>
+
+        <div class="entry-content">
+            {% for year in blog_list %}
+                <table>
+                    <caption><a href="{% url year_archives year.year %}">
+                    {{ year }} <small>({{year.number_entries_year}} {% trans "entries" %})</small>
+                </a></caption>
+                    <thead>
+                        <tr>
+                            <th>{% trans "Month" %}</th>
+                            <th>{% trans "Posts" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for month in year.months %}
+                            <tr>
+                                <td>
+                                    <a href="{% url month_archives month.month year.year%}">{{month}}</a>
+                                </td>
+                                <td>
+                                    {{month.number_entries_month}}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% endfor %}
+        </div>
+
+        <div class="clear"></div>
+
+    </article>
+{% endblock %}

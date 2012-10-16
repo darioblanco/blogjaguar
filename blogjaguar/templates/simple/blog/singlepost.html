@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load pygmentize_tags %}
+
+{% block html_type %} xmlns:fb="http://ogp.me/ns/fb#" {% endblock %}
+{% block title %} {{entry.title}} | The soft jaguar {% endblock %}
+{% block nav_index %}<li class="current">{% endblock %}
+{% block header %}
+    <meta property="og:url" content="http://thesoftjaguar.com{% url singlepost entry.id %}">
+    <meta property="og:title" content="{{entry.title}} | The soft jaguar">
+    <meta property="og:type" content="blog">
+    <meta property="fb:app_id" content="237060613017863">
+{% endblock %}
+
+{% block mainbar %}
+    <article class="post">
+
+        <h1 class="entry-title">{{entry.title}}</h1>
+
+        {% if entry.thumbnail %}
+        <figure>
+            <a href="#"><img src="{{STATIC_URL}}images/thumbnail.jpg" alt="Post thumbnail" class="thumbnail alignleft" /></a>
+        </figure>
+        {% endif %}
+
+        <div class="entry-content">
+            {% autoescape off %}
+                {{entry.post|pygmentize_all}}
+            {% endautoescape %}
+
+        </div>{# .entry-content #}
+
+        <footer class="post-meta">
+            <p>
+                {% trans "In" %}
+                {% for cat in entry.cat.all %}
+                    <a href="../../blog/cat{{ cat.id }}">{{ cat.title }}</a>,
+                {% endfor %}
+                {% trans "by" %}
+                <span class="author vcard"><a class="url fn n" href="#">{{entry.author}}</a></span>
+                {% trans "on" %} {{entry.date}}
+            </p>
+            <div class="share"></div>
+        </footer> {# .post-meta #}
+
+        <div class="clear"></div>
+
+    </article> {# .post #}
+{% endblock %}
