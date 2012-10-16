@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %} {% trans "About me" %} | The soft jaguar {% endblock %}
+{% block nav_about %}<li class="current">{% endblock %}
+
+{% block mainbar %}
+    <article class="post">
+
+        <h1 class="entry-title">{% trans "About me" %}</h1>
+
+        <figure>
+            <a href="https://www.facebook.com/people/Dario-Blanco-Iturriaga/677357928" target="_TOP" title="Dario Blanco Iturriaga"><img src="https://badge.facebook.com/badge/677357928.7843.610559783.png" style="border: 0px;" /></a>
+        </figure>
+
+        <div class="entry-content">
+            {{about_text}}
+        </div>
+
+        <div class="clear"></div>
+
+    </article>
+{% endblock %}

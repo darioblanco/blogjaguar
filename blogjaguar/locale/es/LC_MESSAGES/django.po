@@ -1,0 +1,293 @@
+# Fichero de traducción de inglés a español.
+# Copyright (C) 2011 The soft jaguar
+# This file is distributed under the same license as the PACKAGE package.
+# Darío Blanco <dblancoit@gmail.com>, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-30 13:30+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Darío Blanco <dblancoit@gmail.com>\n"
+"Language-Team: Español <dblancoit@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#: settings.py:73
+msgid "Spanish"
+msgstr "Español"
+
+#: settings.py:74
+msgid "English"
+msgstr "Inglés"
+
+#: apps/blog/models.py:48 templates/classic/header.html:8
+#: templates/classic/sidebar.html:15 templates/classic/blog/categories.html:4
+#: templates/simple/base.html:58 templates/simple/blog/categories.html:4
+#: templates/simple/blog/categories.html:10
+msgid "Categories"
+msgstr "Categorías"
+
+#: apps/blog/models.py:78
+msgid "Entries"
+msgstr "Artículos"
+
+#: apps/blog/models.py:107
+msgid "CommentVotes"
+msgstr "Comentarios"
+
+#: apps/blog/models.py:116
+msgid "EntryVotes"
+msgstr "Votos de Artículos"
+
+#: templates/classic/footer.html:6
+msgid "Image Gallery"
+msgstr "Galería de Imágenes"
+
+#: templates/classic/footer.html:24
+msgid "Featured links"
+msgstr "Enlaces destacados"
+
+#: templates/classic/footer.html:30
+msgid "I'm a social animal"
+msgstr "Soy un animal social"
+
+#: templates/classic/footer.html:32
+msgid "Follow me on Twitter"
+msgstr "Sígueme en Twitter"
+
+#: templates/classic/footer.html:35
+msgid "Add me on Facebook"
+msgstr "Agrégame en Facebook"
+
+#: templates/classic/footer.html:38
+msgid "Add me on LinkedIn"
+msgstr "Agrégame en LinkedIn"
+
+#: templates/classic/footer.html:41
+msgid "Follow my code on github"
+msgstr "Sigue mi código en github"
+
+#: templates/classic/footer.html:44
+msgid "Add me on Google +"
+msgstr "Agrégame en Google +"
+
+#: templates/classic/footer.html:47
+msgid "Subscribe via RSS"
+msgstr "Subscríbete vía RSS"
+
+#: templates/classic/footer.html:50
+msgid "Contact me by email"
+msgstr "Contáctame por email"
+
+#: templates/classic/footer.html:53
+msgid "Follow my videos on Youtube"
+msgstr "Sigue mis vídeos en Youtube"
+
+#: templates/classic/footer.html:56
+msgid "See what I listen to on last.fm"
+msgstr "Mira que escucho en last.fm"
+
+#: templates/classic/footer.html:64 templates/classic/blog/privacy.html:4
+#: templates/classic/blog/privacy.html:9 templates/simple/base.html:102
+#: templates/simple/blog/privacy.html:4 templates/simple/blog/privacy.html:9
+msgid "Privacy policy"
+msgstr "Política de privacidad"
+
+#: templates/classic/footer.html:65 templates/simple/base.html:104
+msgid "License"
+msgstr "Licencia"
+
+#: templates/classic/footer.html:67
+msgid "Developed with"
+msgstr "Desarrollado con"
+
+#: templates/classic/header.html:7 templates/simple/base.html:55
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/classic/header.html:9 templates/classic/blog/archives.html:4
+#: templates/classic/blog/archives.html:8 templates/simple/base.html:66
+#: templates/simple/blog/archives.html:4
+#: templates/simple/blog/archives.html:10
+msgid "Archives"
+msgstr "Archivos"
+
+#: templates/classic/header.html:10 templates/simple/base.html:69
+msgid "About Me"
+msgstr "Acerca de mí"
+
+#: templates/classic/header.html:27 templates/simple/sidebar.html:10
+msgid "Welcome "
+msgstr "Bienvenido "
+
+#: templates/classic/header.html:33 templates/simple/sidebar.html:16
+msgid "The user is not active"
+msgstr "El usuario no está activo"
+
+#: templates/classic/header.html:39 templates/simple/base.html:47
+msgid "A simple blog, with feline pragmatism"
+msgstr "Un blog simple, con pragmatismo felino"
+
+#: templates/classic/sidebar.html:28 templates/simple/sidebar.html:25
+msgid "Administration panel"
+msgstr "Panel de administración"
+
+#: templates/classic/sidebar.html:29 templates/simple/sidebar.html:26
+msgid "Create entry"
+msgstr "Crear entrada"
+
+#: templates/classic/blog/aboutme.html:4 templates/classic/blog/aboutme.html:9
+#: templates/simple/blog/aboutme.html:4 templates/simple/blog/aboutme.html:10
+msgid "About me"
+msgstr "Acerca de mí"
+
+#: templates/classic/blog/aboutme.html:14
+msgid ""
+"My name is Darío Blanco and I live in Madrid, Spain. I was born in 1987, in "
+"Burgos (the never ending winter city). I have a Bachelor's Degree in "
+"Computer Engineering from the University of Burgos and currently I'm "
+"finishing my Master's Degree in Computer Engineering from the Polytechnic "
+"University of Madrid."
+msgstr ""
+"Mi nombre es Darío Blanco y vivo en Madrid, España. Nací en 1987, en la "
+"ciudad del invierno infinito: Burgos. Soy diplomado en Ingeniería Técnica en "
+"Informática de Gestión por la Universidad de Burgos y actualmente estoy "
+"acabando Ingeniería Informática en la Universidad Politécnica de Madrid."
+
+#: templates/classic/blog/aboutme.html:15
+msgid ""
+"I started coding in 2005 using C, although I've used several  languages "
+"before not worth mentioning, then I tried Java (my most used language around "
+"almost 6 years) and a lot of Android, and now I'm doing projects using "
+"Python. Other languages that I've experienced have been PHP, ADA, C#, LISP, "
+"Pascal and Fortran. I love learning new technologies and languages, solve "
+"problems, take on responsibility and work in a team if I can."
+msgstr ""
+"Comencé programando en 2005, concretamente en C, aunque anteriormente he "
+"utilizado varios lenguajes de programación que no creo necesario mencionar. "
+"Entonces probé Java (mi lenguaje más usado durante casi 6 años) y he tocado "
+"bastante de Android, ahora estoy realizando proyectos con Python. Otros "
+"lenguajes que he utilizado en mayor o menor medida han sido PHP, ADA, C#, "
+"LISP, Pascal y Fortran. Me encanta aprender nuevas tecnologías y lenguajes, "
+"resolver problemas, tener cada vez más responsabilidades y trabajar en "
+"equipo."
+
+#: templates/classic/blog/archives.html:13
+#: templates/simple/blog/archives.html:16
+msgid "entries"
+msgstr "artículos"
+
+#: templates/classic/blog/categories.html:13
+#: templates/classic/blog/main.html:31
+#: templates/classic/blog/singlepost.html:66
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/classic/blog/main.html:17 templates/classic/blog/search.html:15
+#: templates/simple/blog/main.html:35 templates/simple/blog/singlepost.html:39
+msgid "by"
+msgstr "por"
+
+#: templates/classic/blog/main.html:17 templates/classic/blog/search.html:15
+msgid "in"
+msgstr "en"
+
+#: templates/classic/blog/main.html:28
+msgid "Read"
+msgstr "Leer más"
+
+#: templates/classic/blog/search.html:7 templates/classic/blog/search.html:10
+msgid "Search"
+msgstr "Búsqueda"
+
+#: templates/classic/blog/search.html:11
+msgid "Entries searched by "
+msgstr "Entradas buscadas por "
+
+#: templates/classic/blog/singlepost.html:37
+msgid "Posted by"
+msgstr "Escrito por"
+
+#: templates/classic/blog/singlepost.html:39
+msgid "Filed under"
+msgstr "Archivado bajo"
+
+#: templates/classic/blog/singlepost.html:44
+msgid " guys think that this entry is ON FIRE"
+msgstr " personajes piensan que este artículo está ON FIRE"
+
+#: templates/classic/blog/singlepost.html:63
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/classic/blog/singlepost.html:70
+msgid "I think this entry is ON FIRE"
+msgstr "Pienso que este artículo está ON FIRE"
+
+#: templates/classic/blog/singlepost.html:72
+#: templates/classic/blog/singlepost.html:133
+msgid "I like it"
+msgstr "Me gusta esto"
+
+#: templates/classic/blog/singlepost.html:76
+#: templates/classic/blog/singlepost.html:136
+msgid "Only logged users can rate articles"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/classic/blog/singlepost.html:80
+msgid "Response"
+msgstr "Respuesta"
+
+#: templates/classic/blog/singlepost.html:85
+msgid "Leave a reply"
+msgstr "Deja un comentario"
+
+#: templates/classic/blog/singlepost.html:87
+msgid "Only authenticated users can leave replies"
+msgstr "Solo usuarios autentificados pueden dejar comentarios"
+
+#: templates/classic/blog/singlepost.html:93
+msgid "Message"
+msgstr "Mensaje"
+
+#: templates/simple/blog/archives.html:20
+msgid "Month"
+msgstr "Mes"
+
+#: templates/simple/blog/archives.html:21
+msgid "Posts"
+msgstr "Posts"
+
+#: templates/simple/blog/main.html:31 templates/simple/blog/singlepost.html:35
+msgid "In"
+msgstr "En"
+
+#: templates/simple/blog/main.html:37 templates/simple/blog/singlepost.html:41
+msgid "on"
+msgstr "en"
+
+#: templates/simple/blog/main.html:39
+#, fuzzy
+msgid "Read more"
+msgstr "Leer más"
+
+#: templates/simple/blog/main.html:45
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/simple/blog/main.html:47
+msgid "Page"
+msgstr "Página"
+
+#: templates/simple/blog/main.html:47
+msgid "of"
+msgstr "de"
+
+#: templates/simple/blog/main.html:49
+msgid "Next"
+msgstr "Siguiente"
