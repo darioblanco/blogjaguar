@@ -1,8 +1,10 @@
 import re
+
+from django.http import HttpResponse
+
 from pygments import highlight
 from pygments.lexers import *
 from pygments.formatters import HtmlFormatter
-from django.http import HttpResponse
 from pygments.lexers import HtmlLexer
 
 

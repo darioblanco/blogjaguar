@@ -14,6 +14,7 @@
 
 from django.contrib.syndication.views import Feed
 from django.core.urlresolvers import reverse
+
 from blog.models import Entry
 from blogjaguar.settings import SITE_URL
 

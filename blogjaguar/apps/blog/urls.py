@@ -15,8 +15,7 @@
 from django.conf.urls.defaults import patterns, url
 
 
-urlpatterns = patterns(
-    'blog.views',
+urlpatterns = patterns('blog.views',
     url(r'^post(?P<post_id>\d+)/$', 'single_entry_view', name="singlepost"),
     url(r'^cat(?P<cat_id>\d+)/$', 'single_category_view',
         name="category_entries"),
