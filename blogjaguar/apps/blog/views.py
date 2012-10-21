@@ -38,7 +38,6 @@ from blog.forms import SubmitCommentForm
 
 def __staticpage_template_gen(request, template_path):
     """Private function for generating simpler templates in the blog.
-    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
@@ -54,7 +53,6 @@ def __staticpage_template_gen(request, template_path):
 
 def __entrypage_template_gen(request, template_path, entry_list):
     """Private function for generating templates related to entries list.
-    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
@@ -84,7 +82,6 @@ def __entrypage_template_gen(request, template_path, entry_list):
 def __singleentry_template_gen(request, template_path, entry, comment_list,
                                form):
     """Private function for generating templates related to a single entry.
-    Needed for accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
@@ -107,16 +104,27 @@ def __singleentry_template_gen(request, template_path, entry, comment_list,
 
 def __archivepage_template_gen(request, template_path, entry_list):
     """Private function for generating templates related to entries archives.
-    Needed to accomplish the DRY principles.
     """
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
 
+    paginator = Paginator(entry_list, 10)
+
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    try:
+        blog_list = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        blog_list = paginator.page(paginator.num_pages)
+
     c = RequestContext(request, {
-        'cat_list': cl.get_categories(),  # Alphabetic order
-        'blog_list': entry_list,  # Entry list
-        'link_list': Link.objects.all().order_by('order'),  # Priority order
+        'cat_list': cl.get_categories(),
+        'blog_list': blog_list,
+        'link_list': Link.objects.all().order_by('order'),
     })
 
     return t.render(c)
