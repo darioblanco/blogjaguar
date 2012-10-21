@@ -28,7 +28,7 @@
         <a href="{% url singlepost entry.id %}"><strong>{% trans "Read" %}</strong></a>
             {% if user.is_authenticated and user.is_superuser %}
                 <span>&nbsp;&bull;&nbsp;</span>
-                <a href="/static/../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+                <a href="/admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
            {% endif %}
     </div>
 {% endfor %}

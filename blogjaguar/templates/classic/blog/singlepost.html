@@ -63,7 +63,7 @@
           <p><strong>{% trans "Comments" %} ({{ comments.count }})</strong>  <span>&nbsp;&bull;&nbsp;</span>  {{ entry.date }}
             {% if user.is_authenticated and user.is_superuser %}
                 <span>&nbsp;&bull;&nbsp;</span>
-                <a href="/static/../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+                <a href="/admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
             {% endif %}
             {% if user.is_authenticated %}
                 <form action="{% url rate_entry entry.id user.id %}" method="post">
@@ -140,7 +140,7 @@
                     +{{ comment.rate }}
                 {% endif %}
                 &nbsp;&nbsp;
-                <a href="/static/../admin/blog/comment/{{ comment.id }}">
+                <a href="/admin/blog/comment/{{ comment.id }}">
                    <img src="/static/images/moderate.gif">
                 </a>
                 </form>
