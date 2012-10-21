@@ -13,16 +13,17 @@
 #   limitations under the License.
 
 from os.path import join, dirname
+
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib import admin
+
 from blog.rssfeeder import LatestEntriesFeed
 from blogjaguar.settings import DEBUG, STATIC_ROOT, MEDIA_ROOT
 
 
 admin.autodiscover()
 
-urlpatterns = patterns(
-    '',
+urlpatterns = patterns('',
     url(r'^$', 'blog.views.blog_entries_view', name="index"),
     (r'^blog/', include('blog.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')),  # Multilanguage

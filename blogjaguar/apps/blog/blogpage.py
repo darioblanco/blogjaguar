@@ -13,8 +13,10 @@
 #   limitations under the License.
 
 from datetime import date, datetime
-from blog.models import Entry
+
 from django.utils.translation import ugettext as _
+
+from blog.models import Entry
 
 
 class BlogPage():
