@@ -4,7 +4,7 @@
 
 {% block title %} Blog | The soft jaguar {% endblock %}
 
-{% block header %} 
+{% block header %}
 <meta property="og:url" content="http://thesoftjaguar.com">
 <meta property="og:title" content="The soft jaguar">
 {% endblock %}
@@ -28,7 +28,7 @@
         <a href="{% url singlepost entry.id %}"><strong>{% trans "Read" %}</strong></a>
             {% if user.is_authenticated and user.is_superuser %}
                 <span>&nbsp;&bull;&nbsp;</span>
-                <a href="{{ STATIC_URL }}../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+                <a href="/static/../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
            {% endif %}
     </div>
 {% endfor %}
@@ -40,7 +40,7 @@
                     {% else %}
                         <a href="{% url blogpage nav %}">{{ nav }}</a>
                     {% endifequal %}
-                {% endfor %}                
+                {% endfor %}
             </span>
         <br />
     </div>

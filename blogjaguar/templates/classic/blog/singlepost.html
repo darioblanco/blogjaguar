@@ -63,14 +63,14 @@
           <p><strong>{% trans "Comments" %} ({{ comments.count }})</strong>  <span>&nbsp;&bull;&nbsp;</span>  {{ entry.date }}
             {% if user.is_authenticated and user.is_superuser %}
                 <span>&nbsp;&bull;&nbsp;</span>
-                <a href="{{ STATIC_URL }}../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
+                <a href="/static/../admin/blog/entry/{{ entry.id }}"><strong>{% trans "Edit" %}</strong></a>
             {% endif %}
             {% if user.is_authenticated %}
                 <form action="{% url rate_entry entry.id user.id %}" method="post">
                     {% trans "I think this entry is ON FIRE" %}&nbsp;
                 {% csrf_token %}
-                    <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="{{ STATIC_URL }}images/like.gif" class="send" />
-{#                    <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="{{ STATIC_URL }}images/dislike.gif" class="send" />#}
+                    <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="/static/images/like.gif" class="send" />
+{#                    <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="/static/images/dislike.gif" class="send" />#}
                 </form>
             {% else %}
                 {% trans "Only logged users can rate articles" %}
@@ -94,7 +94,7 @@
                     <textarea id="message" name="message" rows="8" cols="50" required></textarea>
                     <small>{{ form.message.errors }}</small>
                   </li><li>
-                    <input type="image" name="imageField" id="imageField" src="{{ STATIC_URL }}images/submit.gif" class="send" />
+                    <input type="image" name="imageField" id="imageField" src="/static/images/submit.gif" class="send" />
                     <div class="clr"></div>
                   </li>
                   </ol>
@@ -109,7 +109,7 @@
             <div class="info">
                 <div class="image">
                 {% if comment.author.is_superuser %}
-                    <img src="{{ STATIC_URL }}images/superuserpic.gif" width="40" height="40" alt="user" class="userpic" />
+                    <img src="/static/images/superuserpic.gif" width="40" height="40" alt="user" class="userpic" />
                 {% else %}
                     <img src="http://graph.facebook.com/{{ comment.author.get_profile.facebook_id }}/picture" width="40" height="40" alt="user" class="userpic" />
                 {% endif %}
@@ -130,8 +130,8 @@
                 {{ comment.date }}
                 &nbsp;&nbsp;
                 {% if user.is_authenticated %}
-                        <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="{{ STATIC_URL }}images/like.gif" class="send" />
-{#                        <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="{{ STATIC_URL }}images/dislike.gif" class="send" />#}
+                        <input type="image" name="like" id="like" title="{% trans "I like it" %}" value="like" src="/static/images/like.gif" class="send" />
+{#                        <input type="image" name="dislike" id="dislike" title="{% trans "I don't like it" %}" value="dislike" src="/static/images/dislike.gif" class="send" />#}
                 {% else %}
                     {% trans "Only logged users can rate articles" %}
                 {% endif %}
@@ -140,8 +140,8 @@
                     +{{ comment.rate }}
                 {% endif %}
                 &nbsp;&nbsp;
-                <a href="{{ STATIC_URL }}../admin/blog/comment/{{ comment.id }}">
-                   <img src="{{ STATIC_URL }}images/moderate.gif">
+                <a href="/static/../admin/blog/comment/{{ comment.id }}">
+                   <img src="/static/images/moderate.gif">
                 </a>
                 </form>
             {% endif %}

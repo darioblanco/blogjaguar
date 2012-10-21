@@ -4,7 +4,7 @@
 
     <aside class="widget">
         {% if not user.is_authenticated %}
-            <a href="{% url facebook_login %}"><img src="{{ STATIC_URL }}images/loginfacebook.png" alt="facebook login"/></a>
+            <a href="{% url facebook_login %}"><img src="/static/images/loginfacebook.png" alt="facebook login"/></a>
         {% else %}
             {% if user.is_active %}
                 {% trans "Welcome " %}{{ user.username }}
@@ -22,8 +22,8 @@
         <aside class="widget">
             <h3>Admin</h3>
             <ul>
-                <li><a href="{{STATIC_URL}}../admin">{% trans "Administration panel" %}</a></li>
-                <li><a href="{{STATIC_URL}}../admin/blog/entry/add/"> {% trans "Create entry" %}</a></li>
+                <li><a href="/static/admin">{% trans "Administration panel" %}</a></li>
+                <li><a href="/static/admin/blog/entry/add/"> {% trans "Create entry" %}</a></li>
             </ul>
         </aside>
     {% endif %}

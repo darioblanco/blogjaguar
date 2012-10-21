@@ -10,7 +10,7 @@
         <div class="clr"></div>
         <p>{{ cat.desc }}</p>
         {% if user.is_authenticated %}
-            <a href="{{ STATIC_URL }}../admin/blog/category/{{ cat.id }}"><strong>{% trans "Edit" %}</strong></a>
+            <a href="/static/../admin/blog/category/{{ cat.id }}"><strong>{% trans "Edit" %}</strong></a>
         {% endif %}
     </div>
 {% endfor %}
