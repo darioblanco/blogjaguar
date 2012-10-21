@@ -36,7 +36,7 @@
                     <span class="author vcard"><a class="url fn n" href="#">{{entry.author}}</a></span>
                     {% trans "on" %} {{entry.date}}
                 </p>
-                <a href="#" class="more-link">{% trans "Read more" %}</a>
+                <a href="{% url singlepost entry.id %}" class="more-link">{% trans "Read more" %}</a>
             </footer> {# .post-meta #}
         </article> {# .post #}
         <hr /> {# Post separator #}
