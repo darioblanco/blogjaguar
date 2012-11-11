@@ -1,15 +1,5 @@
 # Blogjaguar, a Django blog software
 
-Although Apache Software License doesn't require to distribute the source
-code, I think that it might be useful to share my work with other
-developers or people who want to try Django like I did.
-
-The web template has been adapted by me and the original web template is available in:
-http://www.iWebsiteTemplate.com/ 
-
-The web template is under Creative Commons Attribution 3.0 License:
-http://creativecommons.org/licenses/by/3.0/
-
 Any feedback about the code, improvement, security issue or question can
 be directed to my email address: dblancoit@gmail.com
 
@@ -22,7 +12,7 @@ Python 2.7+
 Create a new virtualenv and run the following command:
 ``pip install -r requirements.txt``
 
-## Things to improve (it was my first Django app)
+## Things to improve
 Check the issues page
 
 ## Related projects
