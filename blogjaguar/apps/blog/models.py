@@ -70,7 +70,11 @@ class Entry(models.Model):
         """ Gives a preview of the entire entry text.
         """
         if len(self.post) > 1000:
-            return self.post[0:1000] + '  [...]'
+            # Show three paragraphs
+            ending = self.post.find('</p>') + 4
+            ending = self.post.find('</p>', ending) + 4
+            ending = self.post.find('</p>', ending) + 4
+            return self.post[0:ending + 4]
         else:
             return self.post
 
