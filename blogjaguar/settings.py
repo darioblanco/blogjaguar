@@ -18,10 +18,6 @@ import sys
 # Only activate the debug mode when developing and not in production!
 DEBUG = True
 
-ADMINS = (
-    #('yourname', 'your@email.com'),
-)
-
 # Root path of the project
 PROJECT_ROOT = os.path.normpath(os.path.dirname(__file__))
 
@@ -37,8 +33,6 @@ DJANGO_SETTINGS_MODULE = 'blogjaguar.settings'
 # we add the apps path to the root
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
-MANAGERS = ADMINS
-
 SITE_URL = 'http://localhost:8000'
 
 DATABASES = {
@@ -46,35 +40,24 @@ DATABASES = {
         # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3', 'oracle'
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(PROJECT_ROOT, 'blogjaguar.db'),
-        'USER': '',  # Not used with sqlite3.
-        'PASSWORD': '',  # Not used with sqlite3.
-        'HOST': '',  # Set to empty string for localhost. Not used with sqlite3
-        'PORT': '',  # Set to empty string for default. Not used with sqlite3
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
-# Local time zone for this installation. Choices can be found here:
-# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
-# although not all choices may be available on all operating systems.
-# On Unix systems, a value of None will cause Django to use the same
-# timezone as the operating system.
-# If running in a Windows environment this must be set to the same as your
-# system time zone.
 TIME_ZONE = 'Europe/Madrid'
 
-# Language code for this installation. All choices can be found here:
-# http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en'
 
-# To avoiding a circular import of django.utils.translation
+# For avoiding a circular import of django.utils.translation
 # You can put more languages here
 ugettext = lambda s: s
 LANGUAGES = (
     ('es', ugettext('Spanish')),
     ('en', ugettext('English')),
 )
-
-SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -110,7 +93,6 @@ ADMIN_MEDIA_PREFIX = '/admin-media/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 TEMPLATE_DIRS = (
@@ -140,7 +122,6 @@ if not hasattr(globals(), 'SECRET_KEY'):
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-    # 'django.template.loaders.eggs.Loader',
 )
 
 # If CacheMiddleware is used, LocaleMiddleware has to be the next
@@ -148,7 +129,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -162,11 +142,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.admindocs',
+    'django.contrib.staticfiles',
     'blog',
     'facebook',
-    'pygmentize',
-    'django.contrib.staticfiles',
-    'django.contrib.admindocs'
+    'pygmentize'
 )
 
 # For 'facebook' app
