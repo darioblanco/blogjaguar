@@ -85,8 +85,6 @@ STATIC_ROOT = THEMES[THEME]
 # URL prefix for dariomedia files.
 STATIC_URL = '/static/'
 
-# URL prefix for admin files -- CSS, JavaScript and images.
-ADMIN_MEDIA_PREFIX = '/admin-media/'
 
 # List of finder classes that know how to find static files in
 # various locations.
