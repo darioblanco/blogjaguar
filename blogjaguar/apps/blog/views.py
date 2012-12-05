@@ -36,9 +36,8 @@ from blog.forms import SubmitCommentForm
 ################
 
 
-def __staticpage_template_gen(request, template_path):
-    """Private function for generating simpler templates in the blog.
-    """
+def _staticpage_template_gen(request, template_path):
+    """Generates simple templates."""
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
@@ -51,9 +50,8 @@ def __staticpage_template_gen(request, template_path):
     return t.render(c)
 
 
-def __entrypage_template_gen(request, template_path, entry_list):
-    """Private function for generating templates related to entries list.
-    """
+def _entrypage_template_gen(request, template_path, entry_list):
+    """Generates templates related to entries list."""
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
@@ -79,10 +77,9 @@ def __entrypage_template_gen(request, template_path, entry_list):
     return t.render(c)
 
 
-def __singleentry_template_gen(request, template_path, entry, comment_list,
-                               form):
-    """Private function for generating templates related to a single entry.
-    """
+def _singleentry_template_gen(request, template_path, entry, comment_list,
+                              form):
+    """Generates templates related to a single entry."""
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
@@ -102,9 +99,8 @@ def __singleentry_template_gen(request, template_path, entry, comment_list,
     return t.render(c)
 
 
-def __archivepage_template_gen(request, template_path, entry_list):
-    """Private function for generating templates related to entries archives.
-    """
+def _archivepage_template_gen(request, template_path, entry_list):
+    """Generates templates related to entries archives."""
     cl = CategoryLister(request.LANGUAGE_CODE)
 
     t = loader.get_template(template_path)
@@ -138,7 +134,7 @@ def __archivepage_template_gen(request, template_path, entry_list):
 def blog_entries_view(request):
     """Entries list by page (0 is the first and more recent page)"""
     return HttpResponse(
-        __entrypage_template_gen(
+        _entrypage_template_gen(
             request, 'blog/main.html',
             Entry.objects.filter(
                 lang=request.LANGUAGE_CODE,
@@ -148,7 +144,7 @@ def blog_entries_view(request):
 def single_entry_view(request, post_id):
     """Single entry details: entire text and comments"""
     return HttpResponse(
-        __singleentry_template_gen(
+        _singleentry_template_gen(
             request, 'blog/singlepost.html',
             Entry.objects.get(id=post_id),
             Comment.objects.filter(entry=post_id), None))
@@ -157,16 +153,17 @@ def single_entry_view(request, post_id):
 def single_category_view(request, cat_id):
     """Entries list of a single category"""
     return HttpResponse(
-        __entrypage_template_gen(
+        _entrypage_template_gen(
             request, 'blog/main.html',
             Entry.objects.filter(
                 lang=request.LANGUAGE_CODE,
-                cat__id=cat_id).order_by('-date')))
+                cat__id=cat_id,
+                published=True).order_by('-date')))
 
 
 def blog_category_view(request):
     """The entire blog category list with its description per category"""
-    return HttpResponse(__staticpage_template_gen(
+    return HttpResponse(_staticpage_template_gen(
         request, 'blog/categories.html'))
 
 
@@ -187,7 +184,7 @@ def aboutme_view(request):
 
 def privacy_view(request):
     """Static page which expands the privacy policy"""
-    return HttpResponse(__staticpage_template_gen(
+    return HttpResponse(_staticpage_template_gen(
         request, 'blog/privacy.html'))
 
 
@@ -203,21 +200,21 @@ def archive_view(request):
     """List of year and months with the number of entries related.
     """
     bp = BlogPage(request.LANGUAGE_CODE)
-    return HttpResponse(__archivepage_template_gen(
+    return HttpResponse(_archivepage_template_gen(
         request, 'blog/archives.html', bp.archived_years()))
 
 
 def archive_year_request(request, year_id):
     """List of entries related to a specific year"""
     bp = BlogPage(request.LANGUAGE_CODE)
-    return HttpResponse(__archivepage_template_gen(
+    return HttpResponse(_archivepage_template_gen(
         request, 'blog/main.html', bp.posts_year(year_id)))
 
 
 def archive_month_request(request, month_id, year_id):
     """List of entries related to a specific year and month"""
     bp = BlogPage(request.LANGUAGE_CODE)
-    return HttpResponse(__archivepage_template_gen(
+    return HttpResponse(_archivepage_template_gen(
         request, 'blog/main.html', bp.posts_month(month_id, year_id)))
 
 
@@ -243,7 +240,7 @@ def comment_entry_request(request, post_id, user_id):
         form = SubmitCommentForm()  # An unbound form
 
     return HttpResponse(
-        __singleentry_template_gen(
+        _singleentry_template_gen(
             request, 'blog/singlepost.html',
             Entry.objects.get(id=post_id),
             Comment.objects.filter(entry=post_id), form))
