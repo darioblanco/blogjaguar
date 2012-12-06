@@ -9,15 +9,19 @@ Follow me on twitter: @darioblanco
 Python 2.7+
 
 ## Python dependencies
-Create a new virtualenv and run the following command:
-``pip install -r requirements.txt``
+Create a new virtualenv and run the following commands:
+`pip install -r requirements.txt` and `pip install -r test_requirements.txt` (development)
+
+## Running the server
+Blogjaguar brings `gunicorn` integration. The recommended deployment method is Nginx as reverse proxy to the gunicorn instance.
+Just run `blogjaguar` typing `python manage.py run_gunicorn`
 
 ## Things to improve
 Check the issues page
 
 ## Related projects
 * django-pygments (https://github.com/sniku/django-pygments)
-* django-facebook-oauth (https://github.com/ryanmark/django_facebook_oauth) with little modifications
+* django-facebook-oauth (https://github.com/ryanmark/django_facebook_oauth)
 
 ## License
 > Copyright 2011 Darío Blanco Iturriaga

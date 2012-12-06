@@ -144,7 +144,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'blog',
     'facebook',
-    'pygmentize'
+    'pygmentize',
+    'gunicorn'
 )
 
 # For 'facebook' app
